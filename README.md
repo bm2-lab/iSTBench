@@ -31,20 +31,20 @@ In this section, we use multi-slice data as input, applying different methods to
 Taking GraphST and MENDER as an example, the relevant code is as follows:
 ```python
 # GraphST
-nohup python ./Benchmark/RunModel/GraphST.py \
+nohup python Benchmark/RunModel/GraphST/GraphST.py \
 --input_file ./Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file ./Data/BaristaSeq/IntergrationRe \
 --sample GraphST --nclust 7 --device cuda \
-> ./Data/BaristaSeq/GraphST.output  &
+> Data/BaristaSeq/IntergrationRe/GraphST.output  &
 
 # MENDER
-nohup python ./Benchmark/RunModel/MENDER.py \
+nohup python Benchmark/RunModel/MENDER.py \
 --input_file ./Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file ./Data/BaristaSeq/IntergrationRe \
 --sample MENDER --nclust 7 --tech BaristaSeq \
-> ./Data/BaristaSeq/MENDER.output &
+> Data/BaristaSeq/IntergrationRe/MENDER.output &
 ```
-The complete code for running other methods is stored in the "./Benchmark/RunModel/TerminalRun.py" file. Different methods require distinct parameter settings. The specific meanings of the parameters can be referenced in the "./Benchmark/RunModel/parameters.txt" file.
+The "input_file" and "output_file" should be set to the exact path of the input and output file according to the actual situation. The complete code for running other methods is stored in the "./Benchmark/RunModel/TerminalRun.py" file. Different methods require distinct parameter settings. The specific meanings of the parameters can be referenced in the "./Benchmark/RunModel/parameters.txt" file.
 ## 2. Spatial alignment
 In this section,  we evaluate the performance of different methods in spatial alignment. We used the STAligner framework to correct  coordinates between slices based on the integration embeddings and domains identification from each method. To demonstrate the effectiveness of spatial alignment, we applied rotations to slices within the same data. This approach allowed us to clearly illustrate the impact of spatial alignment. Specifically, for each slice in a data, rotations of 0°, 20°, 40°, and so on were applied. The code for performing slices rotation on the specified data is as follows:
 ```python
