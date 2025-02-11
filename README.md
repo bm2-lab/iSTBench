@@ -26,7 +26,7 @@ conda env create -f environment.yml
 ```
 
 It is imperative to note that both Banksy and DpaDo are constructed on the R language. Consequently, in order to execute the code and download the relevant R packages and dependency packages, it is strongly recommended to utilise R 4.3.2.
-## 1. Multi-slice integration and Spatial clustering
+## 1. Multi-slice integration and spatial clustering
 In this section, we use multi-slice data as input, applying different methods to integrate the data and obtain the corresponding embeddings. Based on these integrated embeddings, we perform clustering to identify spatial domains. Different methods have varying requirements for the input data format. The data can be found in the directories "Data/sample_all_data" and "data/sample_data". The "sample_all_data" folder stores the merged multi-slice data, while the "sample_data" folder contains individual slice data. The embeddings and predicted domain information resulting from the integration are stored in the metadata of the corresponding files. The specific format can be referenced in the result files located in "Data/IntegrationRe."
 Taking GraphST and MENDER as an example, the relevant code is as follows:
 ```python
@@ -38,7 +38,7 @@ nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
 > Data/BaristaSeq/IntergrationRe/GraphST.output  &
 
 # MENDER
-nohup python Benchmark/RunModel/Run_MENDER_run.py \
+nohup python Benchmark/RunModel/Run_MENDER.py \
 --input_file ./Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file ./Data/BaristaSeq/IntergrationRe \
 --sample MENDER --nclust 7 --tech BaristaSeq \
