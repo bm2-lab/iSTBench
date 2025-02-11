@@ -1,0 +1,8 @@
+Banksy:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Banksy.h5ad
+CellCharter:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/CellCharter.h5ad
+CN:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/CN.h5ad
+GraphST:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/GraphST.h5ad
+GraphSTwithPASTE:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/GraphSTwithPASTE.h5ad
+MENDER:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/MENDER.h5ad
+NicheCompass:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/NicheCompass.h5ad
+Spado:/home/dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Spado.h5ad
