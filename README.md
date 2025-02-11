@@ -24,7 +24,7 @@ git clone https://github.com/bm2-lab/iSTBench.git
 cd iSTBench
 
 # create the conda environment
-conda env create -f environment.yml
+conda env create -f environment.yaml
 ```
 
 It is imperative to note that both Banksy and DpaDo are constructed on the R language. Consequently, in order to execute the code and download the relevant R packages and dependency packages, it is strongly recommended to utilise R 4.3.2.
