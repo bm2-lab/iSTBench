@@ -38,7 +38,7 @@ nohup python Benchmark/RunModel/GraphST/GraphST.py \
 > Data/BaristaSeq/IntergrationRe/GraphST.output  &
 
 # MENDER
-nohup python Benchmark/RunModel/MENDER.py \
+nohup python Benchmark/RunModel/MENDER_run.py \
 --input_file ./Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file ./Data/BaristaSeq/IntergrationRe \
 --sample MENDER --nclust 7 --tech BaristaSeq \
