@@ -2,13 +2,15 @@
 We developed a comprehensive benchmarking pipeline to evaluate state-of-the-art multi-slice integration methods across diverse technologies. Our evaluation framework includes both multi-slice integration performance and three critical downstream applications that utilize the integrated embeddings, including spatial clustering, spatial alignment, and slice representation. Beyond benchmarking, we examine the relationship between upstream integration and downstream performance, identify task-specific limitations, and propose modular solutions to overcome them. To support this, we curated 19 spatial transcriptomics datasets from seven sources, encompassing multiple technologies such as 10X Visium, BaristaSeq, MERFISH, and STARMap, to benchmark eight multi-slice integration methods.
 
 **8** methods are included:
-- **BANKSY**:《BANKSY unifies cell typing and tissue domain segmentation for scalable spatial omics data analysis》
-- **CellCharter**:《CellCharter reveals spatial cell niches associated with tissue remodeling and cell plasticity》
-- **CN**:《Coordinated Cellular Neighborhoods Orchestrate Antitumoral Immunity at the Colorectal Cancer Invasive Front》
-- **GraphST, GraphST-PASTE**:《Spatially informed clustering, integration, and deconvolution of spatial transcriptomics with GraphST》
-- **MENDER**:《MENDER: fast and scalable tissue structure identification in spatial omics data》
-- **NicheCompass**:《Large-scale characterization of cell niches in spatial atlases using bio-inspired graph learning》
-- **SpaDo**:《Multi‐slice spatial transcriptome domain analysis with SpaDo》
+| Method                                                                         | Article                                                                     | Title                                                                  | Time |
+|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|------|
+| [BANKSY](https://github.com/prabhakarlab/Banksy)                               | [Nature Genetics](https://www.nature.com/articles/s41588-024-01664-3)       |BANKSY unifies cell typing and tissue domain segmentation for scalable spatial omics data analysis          | 2024 |
+| [CellCharter](https://github.com/CSOgroup/cellcharter)                         | [Nature Genetics](https://www.nature.com/articles/s41588-023-01588-4)       |CellCharter reveals spatial cell niches associated with tissue remodeling and cell plasticity               | 2023 |
+| [CN](https://github.com/nolanlab/NeighborhoodCoordination)                     | [Cell](https://www.cell.com/cell/fulltext/S0092-8674(20)31385-4)            |Coordinated Cellular Neighborhoods Orchestrate Antitumoral Immunity at the Colorectal Cancer Invasive Front | 2020 |
+| [GraphST, GraphST-PASTE](https://github.com/JinmiaoChenLab/GraphST)            | [Nature Communications](https://www.nature.com/articles/s41467-023-36796-3) |Spatially informed clustering, integration, and deconvolution of spatial transcriptomics with GraphST       | 2023 |
+| [MENDER](https://github.com/yuanzhiyuan/MENDER)                                | [Nature Communications](https://www.nature.com/articles/s41467-023-44367-9) |MENDER: fast and scalable tissue structure identification in spatial omics data                             | 2024 |
+| [NicheCompass](https://github.com/Lotfollahi-lab/nichecompass)                 | [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.02.21.581428v1)      |Large-scale characterization of cell niches in spatial atlases using bio-inspired graph learning            | 2024 |
+| [SpaDo](https://github.com/bm2-lab/SpaDo)                                      | [Geonome Biology](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03213-x#:~:text=To%20this%20end%2C%20we%20propose%20SpaDo%20%28multi-slice%20spatial,transcriptome%20analysis%20at%20both%20single-cell%20and%20spot%20resolution.)      |Multi‐slice spatial transcriptome domain analysis with SpaDo           | 2024 |
 
 # Benchmark framework
 To rigorously assess the performance of multi-slice integration methods, we propose a comprehensive evaluation framework that examines five key areas: multi-slice integration, spatial clustering, spatial alignment, slice representation as well as the scalability of methods. 
