@@ -13,9 +13,9 @@ We developed a comprehensive benchmarking pipeline to evaluate state-of-the-art 
 | [SpaDo](https://github.com/bm2-lab/SpaDo)                                      | [Geonome Biology](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03213-x#:~:text=To%20this%20end%2C%20we%20propose%20SpaDo%20%28multi-slice%20spatial,transcriptome%20analysis%20at%20both%20single-cell%20and%20spot%20resolution.)      |Multi‐slice spatial transcriptome domain analysis with SpaDo           | 2024 |
 
 # Benchmark framework
-To rigorously assess the performance of multi-slice integration methods, we propose a comprehensive evaluation framework that examines five key areas: multi-slice integration, spatial clustering, spatial alignment, slice representation as well as the scalability of methods. 
-In order to replicate the results obtained or to evaluate the methods using one's own data, it is possible to create a Python environment by entering the following command:
-In order to replicate the results obtained or to evaluate the methods using your own data, it is possible to download the relevant code and sample data, and to create a Python environment by entering the following command:
+To rigorously assess the performance of multi-slice integration methods, we propose a comprehensive evaluation framework covering five key areas: multi-slice integration, spatial clustering, spatial alignment, slice representation, and method scalability.
+
+To replicate the results or evaluate the methods with your own data, you can download the relevant code and sample data and set up a Python environment by entering the following command:
 ```python
 # download iSTBench
 git clone https://github.com/bm2-lab/iSTBench.git
@@ -26,11 +26,11 @@ cd iSTBench
 # create the conda environment
 conda env create -f environment.yaml
 ```
-
-It is imperative to note that both Banksy and DpaDo are constructed on the R language. Consequently, in order to execute the code and download the relevant R packages and dependency packages, it is strongly recommended to utilise R 4.3.2.
+It is important to note that both Banksy and SpaDo are built using the R language. Therefore, to run the code and download the necessary R packages and dependencies, it is strongly recommended to use R version 4.3.2.
 ## 1. Multi-slice integration and spatial clustering
-In this section, we use multi-slice data as input, applying different methods to integrate the data and obtain the corresponding embeddings. Based on these integrated embeddings, we perform clustering to identify spatial domains. Different methods have varying requirements for the input data format. The data can be found in the directories "Data/sample_all_data" and "data/sample_data". The "sample_all_data" folder stores the merged multi-slice data, while the "sample_data" folder contains individual slice data. The embeddings and predicted domain information resulting from the integration are stored in the metadata of the corresponding files. The specific format can be referenced in the result files located in "Data/IntegrationRe."
-Taking GraphST and MENDER as an example, the relevant code is as follows:
+In this section, we use multi-slice data as input, applying different methods to integrate the data and generate the corresponding embeddings. Based on these integrated embeddings, we perform clustering to identify spatial domains. Each method has specific requirements for the input data format. The data can be found in the "Data/sample_all_data" and "data/sample_data" directories. The "sample_all_data" folder contains the merged multi-slice data, while the "sample_data" folder includes individual slice data. The embeddings and predicted domain information from the integration are stored in the metadata of the corresponding files. The specific format can be referenced in the result files located in "Data/IntegrationRe."
+
+As an example, here is the relevant code for GraphST and MENDER:
 ```python
 # GraphST
 nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
@@ -46,9 +46,9 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 --sample MENDER --nclust 7 --tech BaristaSeq \
 > Data/BaristaSeq/IntergrationRe/MENDER.output &
 ```
-The "input_file" and "output_file" should be set to the exact path of the input and output file according to the actual situation. The complete code for running other methods is stored in the "Benchmark/RunModel/TerminalRun.py" file. Different methods require distinct parameter settings. The specific meanings of the parameters can be referenced in the "Benchmark/RunModel/parameters.txt" file.
+The "input_file" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The complete code for running other methods is available in the "Benchmark/RunModel/TerminalRun.sh" file. Each method has specific parameter settings, and the details of these parameters can be found in the "Benchmark/RunModel/parameters.txt" file.
 ## 2. Spatial alignment
-In this section,  we evaluate the performance of different methods in spatial alignment. We used the STAligner framework to correct  coordinates between slices based on the integration embeddings and domains identification from each method. To demonstrate the effectiveness of spatial alignment, we applied rotations to slices within the same data. This approach allowed us to clearly illustrate the impact of spatial alignment. Specifically, for each slice in a data, rotations of 0°, 20°, 40°, and so on were applied. The code for performing slices rotation on the specified data is as follows:
+In this section, we evaluate the performance of different methods in spatial alignment. We used the STAligner framework to correct coordinates between slices based on the integration embeddings and domain identification from each method. To demonstrate the effectiveness of spatial alignment, we applied rotations to slices within the same dataset. This approach clearly illustrates the impact of spatial alignment. Specifically, rotations of 0°, 20°, 40°, and so on were applied to each slice in the dataset. The code for performing slice rotations on the specified data is as follows:
 ```python
 nohup python Benchmark/Alignment/Rotate_spatial.py \
 --input_file ./Data/BaristaSeq/sample_data \
@@ -70,9 +70,9 @@ nohup python Benchmark/Alignment/Run_STAligner.py \
 --step 10 --runNormalization False \
 > Benchmark/Alignment/Result/BaristaSeq/MENDER.output &
 ```
-The "input_file", "input_data" and "output_file" should be set to the exact path of the input and output file according to the actual situation. The alignment results are stored in the file "Benchmark/Alignment/Result/BaristaSeq". The specific meanings of the parameters can be referenced in the "Benchmark/Alignment/STAligner_parameters.txt" file. 
+The "input_file", "input_data" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The alignment results are stored in the file "Benchmark/Alignment/Result/BaristaSeq". The specific meanings of the parameters can be referenced in the "Benchmark/Alignment/STAligner_parameters.txt" file. 
 ## 3. Slice representation
-In this section, we use the abundance of identified spatial domains in each slice as the representation. Therefore, it is necessary to first obtain domain information based on the integration method, and then generate slice representations based on domain abundance. Taking MENDER as an example, the relevant code is as follows:
+In this section, we use the abundance of identified spatial domains in each slice as the representation. To do this, domain information must first be obtained using the integration method, and then slice representations are generated based on domain abundance. Taking MENDER as an example, the relevant code is as follows:
 ```python
 # Firstly, domains are identified based on MENDER, where the number of domains is set to 6
 nohup python Benchmark/RunModel/Run_MENDER.py \
@@ -99,7 +99,7 @@ nohup python Improve/DR.A/DR.A.py \
 --slices_file 'slices1,slices2,slices3' --slices '1,2,3' --model MENDER \
 > Improve/DR.A/MENDER.output &
 ```
-The "data_path", "integrated_path" and "output_path" should be set to the exact path of the input and output file according to the actual situation. The specific meanings of the parameters can be found in the "Improve/DR.A_parameters.txt" file.
+The "data_path", "integrated_path" and "output_path" should be set to the exact paths of the input and output files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/DR.A_parameters.txt" file.
 ## Domain-Relationship-Aware Slice Representation Method (Dr.S)
 The code for slice representation using DR.S is as follows:
 ```python
@@ -108,9 +108,9 @@ nohup Rscript DR.S.R \
 -cn 3 -ad abundance_matrix_normal.csv
 > ./Improve/DR.S/MENDER.output &
 ```
-It is important to note that before using dr.s, the corresponding domain abundance data must first be obtained using the code from "3. Slice Representation." The specific meanings of the parameters can be found in the "Improve/DR.S_parameters.txt" file.
+It is important to note that before using dr.s, the corresponding domain abundance data must first be obtained using the code from "3. Slice representation." The "f" should be set to the exact paths of the input files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/DR.S_parameters.txt" file.
 # Analysis
-The relevant code for analyzing and visualizing the results is stored in the analysis folder.
+The relevant code for analyzing and visualizing the results is stored in the "Analysis" folder.
 # Citation
 # Contacts
 bm2-lab@tongji.edu.cn
