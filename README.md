@@ -75,31 +75,31 @@ The "input_file", "input_data" and "output_file" should be set to the exact path
 In this section, we use the abundance of identified spatial domains in each slice as the representation. Therefore, it is necessary to first obtain domain information based on the integration method, and then generate slice representations based on domain abundance. Taking MENDER as an example, the relevant code is as follows:
 ```python
 # Firstly, domains are identified based on MENDER, where the number of domains is set to 6
-nohup python ./Benchmark/RunModel/MENDER.py \
+nohup python Benchmark/RunModel/Run_MENDER.py \
 --input_file ./Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
 --output_file ./Data/TNBC/SlicesEmbedding/MENDER/6 \
 --sample MENDER --nclust 6 --runNormalization False --tech MIBI \
-> ./Data/TNBC/SlicesEmbedding/MENDER/MENDER_6.output &
+> Data/TNBC/SlicesEmbedding/MENDER_6.output &
 
 # Slices are represented and clustered based on domain abundance.
-nohup Rscript ./Benchmark/SliceRepresentation/SliceRepresentation.R \
+nohup Rscript Benchmark/SliceRepresentation/SliceRepresentation.R \
 -f ./Data/TNBC/SlicesEmbedding/MENDER \
 -m MENDER -cn 3 \
-> ./Data/TNBC/SlicesEmbedding/MENDER/SlicesRepresentation.output &
+> Data/TNBC/SlicesEmbedding/MENDER/SlicesRepresentation.output &
 ```
-The specific meanings of the parameters can be referenced in the "./Benchmark/SliceRepresentation/parameters.txt" file. 
+The specific meanings of the parameters can be referenced in the "Benchmark/SliceRepresentation/parameters.txt" file. 
 # Modular solution
 ## Domain-Relationship-Aware Alignment Method (Dr.A)
 The code for spatial alignment using DR.A is as follows:
 ```python
-nohup python ./Improve/DR.A.py \
+nohup python Improve/DR.A/DR.A.py \
 --data_path ./Data/BaristaSeq/sample_data_rotate \
 --integrated_path ./Data/BaristaSeq/IntergrationRe \
 --output_path ./Improve/DR.A/Result \
---slices_file '1,2,3' --slices '1,2,3' --model MENDER \
-> ./Improve/DR.A/MENDER.output &
+--slices_file 'slices1,slices2,slices3' --slices '1,2,3' --model MENDER \
+> Improve/DR.A/MENDER.output &
 ```
-The specific meanings of the parameters can be found in the "./Improve/DR.A_parameters.txt" file.
+The "data_path", "integrated_path" and "output_path" should be set to the exact path of the input and output file according to the actual situation. The specific meanings of the parameters can be found in the "Improve/DR.A_parameters.txt" file.
 ## Domain-Relationship-Aware Slice Representation Method (Dr.S)
 The code for slice representation using DR.S is as follows:
 ```python
@@ -108,7 +108,7 @@ nohup Rscript DR.S.R \
 -cn 3 -ad abundance_matrix_normal.csv
 > ./Improve/DR.S/MENDER.output &
 ```
-It is important to note that before using dr.s, the corresponding domain abundance data must first be obtained using the code from "3. Slice Representation." The specific meanings of the parameters can be found in the "./Improve/DR.S_parameters.txt" file.
+It is important to note that before using dr.s, the corresponding domain abundance data must first be obtained using the code from "3. Slice Representation." The specific meanings of the parameters can be found in the "Improve/DR.S_parameters.txt" file.
 # Analysis
 The relevant code for analyzing and visualizing the results is stored in the analysis folder.
 # Citation
