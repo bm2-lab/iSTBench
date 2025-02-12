@@ -1,4 +1,4 @@
-generate_spatial_plots <- function(data_file, output_file) {
+generate_spatial_plots <- function(data_file, original_data, output_file) {
   library(Matrix)
   library(Seurat)
   library(magrittr)
@@ -12,6 +12,7 @@ generate_spatial_plots <- function(data_file, output_file) {
   library(aricode)
   library(reticulate)
   
+
   spatial_data_file <- read.table(data_file, header = FALSE)
   
   
@@ -20,8 +21,6 @@ generate_spatial_plots <- function(data_file, output_file) {
   color2 <- c("#E89C9A","#ACCBDE","#CF3732","#BAD691","#002FA7","#008C8C","#81D8CF","#B05923","#900021","#E60000","#FBD26A","#E85827","#432913")
   
   
-  
-  # process the data
   metadata <- matrix(,dim(read_h5ad(unlist(strsplit(spatial_data_file[1, 1], split = ":"))[2]))[1],)
   for(i in 1:nrow(spatial_data_file)){
     model <- unlist(strsplit(spatial_data_file[i, 1], split = ":"))[1]
@@ -47,15 +46,7 @@ generate_spatial_plots <- function(data_file, output_file) {
   metadata <- metadata[, -1]
   metadata <- as.data.frame(metadata)
   
-  ex <- unlist(strsplit(spatial_data_file[1, 1], split = ":"))[2]
-  #paste(paste(unlist(strsplit(ex, split = "/"))[1:7], collapse = "/"), "sample_all_data/Slices_combind_data.h5ad", sep = "/")
-  
-  if(grepl("seed", ex)){
-    Intergration_Benchmark
-    spatial <- read_h5ad(paste(paste(unlist(strsplit(gsub("Intergration_Benchmark_seed=[0-9]+", "Intergration_Benchmark", ex), split = "/"))[1:8], collapse = "/"), "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
-  }else{
-    spatial <- read_h5ad(paste(paste(unlist(strsplit(ex, split = "/"))[1:8], collapse = "/"), "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
-  }
+  spatial <- read_h5ad(original_data)
   
   index <- match(metadata$barcode, spatial$obs$barcode)
   spatial <- spatial$obsm$spatial[index,]
@@ -84,8 +75,7 @@ generate_spatial_plots <- function(data_file, output_file) {
   model_metric$model_ari <- as.numeric(model_metric$model_ari)
   model_metric$model_nmi <- as.numeric(model_metric$model_nmi)
   write.table(model_metric,paste(output_file, "model_metric.csv", sep = "/"), col.names = T,row.names = F,sep = ",",quote = F)
-
-  ###plot
+  
   ari_plot <- ggplot(model_metric, aes(x = model_names, y = model_ari, fill = model_names)) +
     geom_bar(stat = "identity") +
     labs(title = "ARI Values", x = "Model", y = "ARI") +
@@ -172,6 +162,7 @@ generate_spatial_plots <- function(data_file, output_file) {
 
 args <- commandArgs(trailingOnly = TRUE)
 data_file <- args[1]
-output_file <- args[2]
+original_data <- args[2]
+output_file <- args[3]
 
-generate_spatial_plots(data_file, output_file)
+generate_spatial_plots(data_file, original_data, output_file)
