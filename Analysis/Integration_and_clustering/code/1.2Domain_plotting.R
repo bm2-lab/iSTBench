@@ -10,11 +10,8 @@ generate_spatial_plots <- function(data_file, output_file) {
   library(patchwork)
   library(tidyverse)
   library(aricode)
-  
   library(reticulate)
   
-  
-  # 读取数据文件
   spatial_data_file <- read.table(data_file, header = FALSE)
   
   
@@ -24,7 +21,7 @@ generate_spatial_plots <- function(data_file, output_file) {
   
   
   
-  # 处理数据
+  # process the data
   metadata <- matrix(,dim(read_h5ad(unlist(strsplit(spatial_data_file[1, 1], split = ":"))[2]))[1],)
   for(i in 1:nrow(spatial_data_file)){
     model <- unlist(strsplit(spatial_data_file[i, 1], split = ":"))[1]
@@ -87,7 +84,8 @@ generate_spatial_plots <- function(data_file, output_file) {
   model_metric$model_ari <- as.numeric(model_metric$model_ari)
   model_metric$model_nmi <- as.numeric(model_metric$model_nmi)
   write.table(model_metric,paste(output_file, "model_metric.csv", sep = "/"), col.names = T,row.names = F,sep = ",",quote = F)
-  
+
+  ###plot
   ari_plot <- ggplot(model_metric, aes(x = model_names, y = model_ari, fill = model_names)) +
     geom_bar(stat = "identity") +
     labs(title = "ARI Values", x = "Model", y = "ARI") +
@@ -172,7 +170,6 @@ generate_spatial_plots <- function(data_file, output_file) {
   
 }
 
-# 调用函数
 args <- commandArgs(trailingOnly = TRUE)
 data_file <- args[1]
 output_file <- args[2]
