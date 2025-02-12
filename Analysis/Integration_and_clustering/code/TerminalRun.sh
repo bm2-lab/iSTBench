@@ -1,3 +1,5 @@
+#The full integrated analysis results for BaristaSeq have been uploaded to zenodo
+
 #1.1 Integration_metric.py
 #BaristaSeq
 nohup python Analysis/Integration_and_clustering/code/1.1Intergration_metric.py \
