@@ -149,8 +149,11 @@ for(d in datasets){
 
 write.table(intergration_re, "/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration/intergration_re_all.csv", col.names = T, row.names = F, sep = ",", quote = F)
 
+
+setwd("/iSTBench")
+
 ###2. integration result plotting----
-intergration_re1 <- read.csv("/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration/intergration_re_all.csv")
+intergration_re1 <- read.csv("Analysis/Integration_and_clustering/result/intergration_re_all.csv")
 intergration_re1[which(intergration_re1$model == "GraphSTwithPASTE"),]$model  <- "GraphST-PASTE"
 intergration_re1 <- intergration_re1[intergration_re1$model != "CN",]
 intergration_re1$model <- factor(intergration_re1$model, levels = c("Banksy", "CellCharter", "GraphST", "GraphST-PASTE", "MENDER", "NicheCompass", "Spado"))
@@ -215,31 +218,15 @@ for(dataset in datasets){
     NoLegend()
   
   p_all <- wrap_plots(list(p1,p2,p3,p4), ncol = 4)
-  savePath <- paste("/NFS_home/NFS_home_6/dongkj/home_dkj/FD_yzy/Result/1.Intergration_umap/MetricPlot", paste(dataset, "pdf", sep = "."), sep = "/")
+  savePath <- paste("Analysis/Integration_and_clustering/result", paste(dataset, "pdf", sep = "."), sep = "/")
   ggsave(savePath, plot = p_all, width = 22, height = 4, units = "cm")
   ### 
 }
 
 #### 2.2 plotting function for extended fig 2----
 plotFun <- function(plotData){
-  # color <- c("Banksy" = "#C74B3E", "CellCharter" = "#539B4F", "GraphST" = "#ECBD7C", "GraphSTwithPASTE" = "#DC813B", "MENDER" = "#BCD3E6", "NicheCompass" ="#8481B4", "Spado" = "#B8D394" )
   color <- c("Banksy" = "#509C3D", "CellCharter" = "#C33931", "GraphST" = "#3A73AE", "GraphST-PASTE" = "#EE8435", "MENDER" = "#8D68B8", "NicheCompass" ="#BABD45", "Spado" = "#D57BBE" )
   
-  # p_bASW_bar <- ggplot(plotData, aes(x = model, y = bASW, fill = model)) +
-  #   stat_summary(fun = mean, geom = "bar", alpha = 0.7, size = 0.3, width = 0.5) +  
-  #   stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, size = 0.3) +
-  #   geom_jitter(aes(color = model), position = position_jitterdodge(jitter.width = 0.3), size = 0.2) +
-  #   scale_fill_manual(values = color) +
-  #   scale_color_manual(values = color) +
-  #   theme_classic() +  
-  #   labs(x = NULL, y = "bASW") +  
-  #   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 6, color = "black"),
-  #         axis.text.y = element_text(size = 6, color = "black"),
-  #         axis.title.y = element_text(size = 6, color = "black"),
-  #         panel.grid.major = element_blank(), 
-  #         panel.grid.minor = element_blank(),
-  #         axis.line = element_line(color = "black", size = 0.3)) +
-  #   NoLegend() 
   p_bASW_box <- ggplot(plotData, aes(x = model, y = bASW, fill = model)) +
     #stat_boxplot(geom = "errorbar", aes(ymin = ..ymax..), width = 0.3, size = 0.3)+
     geom_boxplot(outlier.shape = NA, alpha = 0.7, size = 0.3, width = 0.5) +  
@@ -309,8 +296,7 @@ plotFun <- function(plotData){
     NoLegend()
   
   p_box <- wrap_plots(list(p_bASW_box, p_kBET_box ,p_dASW_box, p_ilF1_box), ncol = 4)
-  #p_bar <- wrap_plots(list(p_bASW_bar, p_kBET_bar ,p_dASW_bar, p_ilF1_bar), ncol = 4)
-  
+
   return(list(boxplot =  p_box))
 }
 
@@ -318,14 +304,14 @@ plotFun <- function(plotData){
 plotData <- intergration_re1[grep("DLPFC", intergration_re1$datasets),]
 plotData <- plotData[plotData$model != "CN",]
 DLPFC_plot <- plotFun(plotData)
-ggsave("~/FD_yzy/Result/1.Intergration_umap/MetricPlot_with_errobar/DLPFC_box.pdf", DLPFC_plot$boxplot, width = 21, height = 5, units = "cm")
+ggsave("Analysis/Integration_and_clustering/result/DLPFC_box.pdf", DLPFC_plot$boxplot, width = 21, height = 5, units = "cm")
 
 #### 2.4 MERFISH Brain----
 plotData <- intergration_re1[grep("MERFISH_Brain", intergration_re1$datasets),]
 plotData <- plotData[,c("model", "datasets","bASW", "kBET", "dASW", "ilF1")]
 plotData <- na.omit(plotData)
 MERFISH_Brain_plot <- plotFun(plotData)
-ggsave("/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration_umap/MetricPlot_with_errobar/MERFISH_Brain_box.pdf", MERFISH_Brain_plot$boxplot, width = 21, height = 5, units = "cm")
+ggsave("Analysis/Integration_and_clustering/result/MERFISH_Brain_box.pdf", MERFISH_Brain_plot$boxplot, width = 21, height = 5, units = "cm")
 
 ### 3.funck heatmap----
 #### 3.1load color data-----
@@ -428,17 +414,16 @@ p <- funky_heatmap(
   scale_column = T
 )
 p
-ggsave("/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration_umap/MetricPlot_with_errobar/heatmap_all.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
+ggsave("Analysis/Integration_and_clustering/result/heatmap_all.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
 
 
 ###4. clustering result plotting----
-intergration_re1 <- read.csv("/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration/intergration_re_all.csv")
+intergration_re1 <- read.csv("Analysis/Integration_and_clustering/result/intergration_re_all.csv")
 intergration_re1[which(intergration_re1$model == "GraphSTwithPASTE"),]$model  <- "GraphST-PASTE"
 intergration_re1$model <- factor(intergration_re1$model, levels = c("Banksy", "CellCharter", "CN", "GraphST", "GraphST-PASTE", "MENDER", "NicheCompass", "Spado"))
 
 #### 4.1 plotting function for extended fig 3----
 plotFun <- function(plotData, plotData2){
-  #color <- c("Banksy" = "#C74B3E", "CellCharter" = "#539B4F", "CN" = "#5E93BF", "GraphST" = "#ECBD7C", "GraphSTwithPASTE" = "#DC813B", "MENDER" = "#BCD3E6", "NicheCompass" ="#8481B4", "Spado" = "#B8D394" )
   color <- c("Banksy" = "#509C3D", "CellCharter" = "#C33931", "CN" = "#58BACC", "GraphST" = "#3A73AE", "GraphST-PASTE" = "#EE8435", "MENDER" = "#8D68B8", "NicheCompass" ="#BABD45", "Spado" = "#D57BBE" )
   
   plotData$Time <- log2(plotData$Time)
@@ -554,12 +539,14 @@ plotFun <- function(plotData, plotData2){
 }
 
 #### 4.2 DLPFC----
+# It is necessary to complete the corresponding integration analysis and 
+# preliminary result analysis of the data first
 plotData <- intergration_re1[grep("DLPFC", intergration_re1$datasets),]
 plotData2 <- data.frame()
 datasets <- c("DLPFC_sample1", "DLPFC_sample3", "DLPFC_sample3")
 for(d in datasets){
-  path2 <- paste("~/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
-  path3 <- paste("~/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
+  path2 <- paste("Data", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
+  path3 <- paste("Data", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
   
   chaos <- read.csv(path2)
   chaos <- chaos %>%
@@ -583,9 +570,12 @@ for(d in datasets){
 }
 plotData2[which(plotData2$Model == "GraphSTwithPASTE"),]$Model  <- "GraphST-PASTE"
 DLPFC_plot <- plotFun(plotData, plotData2)
-ggsave("~/FD_yzy/Result/1.Intergration/Metric_with_errobar/DLPFC.pdf", DLPFC_plot, width = 22, height = 5, units = "cm")
+ggsave("Analysis/Integration_and_clustering/result/DLPFC_clustering.pdf", DLPFC_plot, width = 22, height = 5, units = "cm")
 
 #### 4.3 MERFISH_Brain----
+# It is necessary to complete the corresponding integration analysis and 
+# preliminary result analysis of the data first
+
 plotData <- intergration_re1[grep("MERFISH_Brain", intergration_re1$datasets),]
 plotData2 <- data.frame()
 datasets <- c("MERFISH_Brain_S2", "MERFISH_Brain_S3", "MERFISH_Brain_S4", "MERFISH_Brain_S5",
@@ -593,8 +583,8 @@ datasets <- c("MERFISH_Brain_S2", "MERFISH_Brain_S3", "MERFISH_Brain_S4", "MERFI
               "MERFISH_Brain_S10", "MERFISH_Brain_S11", "MERFISH_Brain_S12")
 
 for(d in datasets){
-  path2 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
-  path3 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
+  path2 <- paste("Data", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
+  path3 <- paste("Data", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
   
   chaos <- read.csv(path2)
   chaos <- chaos %>%
@@ -618,7 +608,7 @@ for(d in datasets){
 }
 plotData2[which(plotData2$Model == "GraphSTwithPASTE"),]$Model  <- "GraphST-PASTE"
 MERFISH_Brain_plot <- plotFun(plotData, plotData2)
-ggsave("/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration/Metric_with_errobar/MERFISH_Brain.pdf", MERFISH_Brain_plot, width = 22, height = 5, units = "cm")
+ggsave("Analysis/Integration_and_clustering/result/MERFISH_Brain_clustering.pdf", MERFISH_Brain_plot, width = 22, height = 5, units = "cm")
 
 
 ### 5.clustering funck heatmap----
@@ -735,11 +725,11 @@ p <- funky_heatmap(
   scale_column = T
 )
 p
-ggsave("/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration/Metric_with_errobar/heatmap_all_new.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
+ggsave("Analysis/Integration_and_clustering/result/heatmap_all_clustering.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
 
 
 ###6. time plot----
-intergration_re <- read.csv("/NFS_home/NFS_home_6/home_dkj/FD_yzy/Result/1.Intergration/intergration_re_all.csv")
+intergration_re <- read.csv("Analysis/Integration_and_clustering/result/intergration_re_all.csv")
 intergration_re[which(intergration_re$model == "GraphSTwithPASTE"),]$model  <- "GraphST-PASTE"
 intergration_re$model <- factor(intergration_re$model, levels = c("Banksy", "CellCharter", "CN", "GraphST", "GraphST-PASTE", "MENDER", "NicheCompass", "Spado"))
 
@@ -849,6 +839,6 @@ p_memory_3 <- ggplot(plotData, aes(x = AllCount, y = Memory, color = model, grou
 p_all <- wrap_plots(list(p_time_1, p_memory_1,
                          p_time_2, p_memory_2,
                          p_time_3, p_memory_3), ncol = 2)
-ggsave("~/FD_yzy/Result/1.Intergration/Metric_with_errobar/time_memory.pdf", plot = p_all, width = 20, height = 15, units = "cm")
+ggsave("Analysis/Integration_and_clustering/result/time_memory.pdf", plot = p_all, width = 20, height = 15, units = "cm")
 
 
