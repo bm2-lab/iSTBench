@@ -43,7 +43,6 @@ fx_CHAOS = function(clusterlabel, location){
     count = count + 1
     location_cluster = matched_location[which(clusterlabel == k),]
     if(length(location_cluster)==2){next}
-    #require(parallel)
     results = mclapply(1:dim(location_cluster)[1], fx_1NN, location_in=location_cluster,mc.cores = 5)
     dist_val[count] = sum(unlist(results))
   }
@@ -53,7 +52,6 @@ fx_CHAOS = function(clusterlabel, location){
 }
 
 fx_PAS = function(clusterlabel, location){
-  # require(parallel)
   
   matched_location=location
   NAs = which(is.na(clusterlabel))
@@ -65,7 +63,6 @@ fx_PAS = function(clusterlabel, location){
   results = mclapply(1:dim(matched_location)[1], fx_kNN, location_in=matched_location,k=10,cluster_in=clusterlabel, mc.cores = 5)
   return(sum(unlist(results))/length(clusterlabel))
 }
-
 
 metric1_cal <- function(metadata, m, domain){
   match_domain <- names(sort(table(metadata[metadata$Ground_truth == domain, which(colnames(metadata) == m)]), decreasing = T))[1]
@@ -133,8 +130,11 @@ metric2_cal <- function(metadata, m, domain){
   
 }
 
-metadata <- read.csv("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/metaPredictedRe.csv")
-metadata_original <- read.csv("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/metaPredictedRe.csv")
+###set path to iSTBench
+setwd("/iSTBench")
+
+metadata <- read.csv("Data/BaristaSeq/IntergrationRe/Metric/metaPredictedRe.csv")
+metadata_original <- read.csv("Data/BaristaSeq/IntergrationRe/Metric/metaPredictedRe.csv")
 
 ###1. domain matching----
 domain = unique(metadata$original_domain)
@@ -197,11 +197,12 @@ for(s in slices){
   CHAOS <- cbind(CHAOS, model_slices_chaos)
   PAS <- cbind(PAS, model_slices_pas)
 }
-CHAOS <- CHAOS[,-1]
-PAS <- PAS[,-1]
 
 CHAOS <- as.data.frame(CHAOS)
 PAS <- as.data.frame(PAS)
+
+CHAOS <- CHAOS[,-1]
+PAS <- PAS[,-1]
 
 CHAOS$Model <- model
 rownames(CHAOS) <- model
@@ -211,22 +212,19 @@ PAS$Model <- model
 rownames(PAS) <- model
 colnames(PAS) <- c(slices, "Model")
 
+###The Settings are based on the actual running model
 CHAOS$Model <- factor(CHAOS$Model, levels = c("Banksy", "CellCharter", "CN", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado"))
 PAS$Model <- factor(PAS$Model, levels = c("Banksy", "CellCharter", "CN", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado"))
 
-write.table(CHAOS, "/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/CHAOS.csv", col.names = T,row.names = F,sep = ",",quote = F)
-write.table(PAS, "/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/PAS.csv", col.names = T,row.names = F,sep = ",",quote = F)
+write.table(CHAOS, "Data/BaristaSeq/IntergrationRe/Metric/CHAOS.csv", col.names = T,row.names = F,sep = ",",quote = F)
+write.table(PAS, "Data/BaristaSeq/IntergrationRe/Metric/PAS.csv", col.names = T,row.names = F,sep = ",",quote = F)
 
-# CHAOS <- read.csv("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/CHAOS.csv")
-# PAS <- read.csv("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/PAS.csv")
 
 ###3.clustering metric plot----
-CHAOS <- read.csv("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/CHAOS.csv")
-PAS <- read.csv("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/PAS.csv")
-
 CHAOS[which(CHAOS$Model == "GraphSTwithPASTE"), ]$Model <- "GraphST-PASTE"
 PAS[which(PAS$Model == "GraphSTwithPASTE"), ]$Model <- "GraphST-PASTE"
 model_metric[which(model_metric$model == "GraphSTwithPASTE"), ]$model <- "GraphST-PASTE"
+
 color <- c("Banksy" = "#509C3D", "CellCharter" = "#C33931", "CN" = "#58BACC", "GraphST" = "#3A73AE", "GraphST-PASTE" = "#EE8435", "MENDER" = "#8D68B8", "NicheCompass" ="#BABD45", "Spado" = "#D57BBE" )
 
 CHAOS_long <- melt(CHAOS, id.vars = "Model", variable.name = "slices", value.name = "value")
@@ -293,10 +291,16 @@ p4 <- ggplot(PAS_long, aes(x = Model, y = value, fill = Model)) +
   NoLegend()
 
 p_all <- wrap_plots(list(p1,p2,p3,p4), ncol = 4)
-ggsave("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/BaristaSeq_metric.pdf", plot = p_all, width = 22, height = 5, units = "cm")
+ggsave("Data/BaristaSeq/IntergrationRe/Metric/BaristaSeq_metric.pdf", plot = p_all, width = 22, height = 5, units = "cm")
 
 
 ###4. domain plotting---- 
+slices <- unique(metadata$slices)
+slices <- sort(slices)
+model <- colnames(metadata)[5:ncol(metadata)]
+domain <- unique(metadata$Ground_truth)
+color <- c("VISp_I" = "#2F6DA1", "VISp_II/III" = "#EB49F7", "VISp_IV" = "#6CE3FB", "VISp_V" = "#EB594F", "VISp_VI" = "#FFFF54", "VISp_wm" ="#3B8749" )
+
 plot_list <- list()
 for(m in model){
   domain_data <- metadata[,match(c("X", "Y", "slices", m), colnames(metadata))]
@@ -327,7 +331,7 @@ for(m in model){
   plot_list[[m]] <- p_1
 }
 p_all <- grid.arrange(grobs = plot_list, ncol = 9)
-ggsave("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/BaristaSeq_Result_domain.pdf", plot = p_all, width = 40, height = 6.75, units = "in")
+ggsave("Data/BaristaSeq/IntergrationRe/Metric/BaristaSeq_Result_domain.pdf", plot = p_all, width = 40, height = 6.75, units = "in")
 
 
 ###5. Umap plotting----
@@ -438,21 +442,21 @@ col_slices <- c("1" = "#FFFF54", "2" = "#6CE3FB", "3" = "#EB49F7" )
 col_domain <- c("VISp_I" = "#2F6DA1", "VISp_II/III" = "#EB49F7", "VISp_IV" = "#6CE3FB", "VISp_V" = "#EB594F", "VISp_VI" = "#FFFF54", "VISp_wm" ="#3B8749" )
 
 ###读取路径文件----
-dataPath <- read.table("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/domain_plot.txt")
+dataPath <- read.table("Data/BaristaSeq/IntergrationRe/Metric/domain_plot.txt")
 dataPath$Model <- apply(dataPath, 1, function(x){
   unlist(strsplit(x, split = ":"))[1]
 })
 dataPath$Path <- apply(dataPath, 1, function(x){
   unlist(strsplit(x, split = ":"))[2]
 })
+
 dataPath <- dataPath[match(c("Banksy", "CellCharter", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado") ,dataPath$Model),]
 
 
 ###original数据读取和绘图----
 SlicesUmapList <- list()
 DomainUmapList <- list()
-
-originalData <- read_h5ad(paste(paste(unlist(strsplit(dataPath$Path[1], split = "/"))[1:7], collapse = "/"), "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
+originalData <- read_h5ad("Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad")
 metadata <- originalData$obs
 
 ###model embedding数据读取和绘图----
@@ -471,13 +475,9 @@ for(i in 1:nrow(dataPath)){
 }
 
 SlicesUmap <- wrap_plots(SlicesUmapList, ncol = 7, heights = 1, widths = 1)
-ggsave("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/BaristaSeq_SlicesUmap.pdf", plot = SlicesUmap, width = 20, height = 2.5, units = "in")
+ggsave("Data/BaristaSeq/IntergrationRe/Metric/BaristaSeq_SlicesUmap.pdf", plot = SlicesUmap, width = 20, height = 2.5, units = "in")
 
 DomainUmap <- wrap_plots(DomainUmapList, ncol = 7, heights = 1, widths = 1)
-ggsave("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark/BaristaSeq/IntergrationRe/Metric/BaristaSeq_DomainUmap.pdf", plot = DomainUmap, width = 20, height = 2.5, units = "in")
-
-
-
-
+ggsave("Data/BaristaSeq/IntergrationRe/Metric/BaristaSeq_DomainUmap.pdf", plot = DomainUmap, width = 20, height = 2.5, units = "in")
 
 
