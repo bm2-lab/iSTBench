@@ -77,9 +77,9 @@ def run_nichecompass(input_file, output_file, sample, nclust, species,convertID,
 
     # Paths for the gene annotation, gene program, and spatial data
     # The value must be modified based on the actual path
-    ga_data_folder_path = "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench-main/Benchmark/RunModel/NicheCompass/gene_annotations"
-    gp_data_folder_path = "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench-main/Benchmark/RunModel/NicheCompass/gene_programs"
-    so_data_folder_path = "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench-main/Benchmark/RunModel/NicheCompass/spatial_omics"
+    ga_data_folder_path = "Benchmark/RunModel/NicheCompass/gene_annotations"
+    gp_data_folder_path = "Benchmark/RunModel/NicheCompass/gene_programs"
+    so_data_folder_path = "Benchmark/RunModel/NicheCompass/spatial_omics"
     omnipath_lr_network_file_path = f"{gp_data_folder_path}/omnipath_lr_network.csv"
     collectri_tf_network_file_path = f"{gp_data_folder_path}/collectri_tf_network_{species}.csv"
     nichenet_lr_network_file_path = f"{gp_data_folder_path}/nichenet_lr_network_v2_{species}.csv"
