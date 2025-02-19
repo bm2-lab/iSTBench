@@ -20,7 +20,7 @@ generate_spatial_plots <- function(data_file, original_data, output_file) {
   # output_file: Directory path where the output plots and metrics will be saved
   
   # Specify the Python environment to use (required by SeuratDisk for Python-R integration)
-  use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
+  # use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
   
   # Read the spatial data file which contains information about the models and their data sources
   spatial_data_file <- read.table(data_file, header = FALSE)
