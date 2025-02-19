@@ -20,7 +20,7 @@ generate_spatial_plots <- function(data_file, original_data, output_file) {
   # output_file: Directory path where the output plots and metrics will be saved
   
   # Specify the Python environment to use (required by SeuratDisk for Python-R integration)
-  # use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
+  #use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
   
   # Read the spatial data file which contains information about the models and their data sources
   spatial_data_file <- read.table(data_file, header = FALSE)
@@ -29,7 +29,10 @@ generate_spatial_plots <- function(data_file, original_data, output_file) {
   color2 <- c("#E89C9A","#ACCBDE","#CF3732","#BAD691","#002FA7","#008C8C","#81D8CF","#B05923","#900021","#E60000","#FBD26A","#E85827","#432913")
   
   # Initialize metadata for storing information about the spatial and model data
-  metadata <- matrix(,dim(read_h5ad(unlist(strsplit(spatial_data_file[1, 1], split = ":"))[2]))[1],)
+  data <- read_h5ad(original_data)
+  metadata <- matrix(,dim(data)[1],)
+  data_meta <- data$obs
+  metadata <- cbind(metadata, data_meta[,match(c("barcode","X","Y","slices","original_domain"), colnames(data_meta))]) 
   
   # Loop through each model's data file, extract metadata, and bind it together for further analysis
   for(i in 1:nrow(spatial_data_file)){
@@ -37,21 +40,12 @@ generate_spatial_plots <- function(data_file, original_data, output_file) {
     ex <- unlist(strsplit(spatial_data_file[i, 1], split = ":"))[2]
     data <- read_h5ad(ex)
     
-    # For the first model, extract and combine the metadata
-    if(i == 1){
-      data_meta <- data$obs
-      metadata <- cbind(metadata, data_meta[,match(c("barcode","X","Y","slices","original_domain"), colnames(data_meta))]) 
-      predicted_domain <- as.data.frame(as.character(data_meta$predicted_domain))
-      colnames(predicted_domain) <- model
-      metadata <- cbind(metadata, predicted_domain)
-    } else {
-      # For subsequent models, match barcodes and add the predicted domains to the metadata
-      data_meta <- data$obs
-      index <- match(metadata[,2], data_meta$barcode)
-      predicted_domain <- as.data.frame(as.character(data_meta[index,]$predicted_domain))
-      colnames(predicted_domain) <- model
-      metadata <- cbind(metadata, predicted_domain)
-    }
+    # For subsequent models, match barcodes and add the predicted domains to the metadata
+    data_meta <- data$obs
+    index <- match(metadata[,2], data_meta$barcode)
+    predicted_domain <- as.data.frame(as.character(data_meta[index,]$predicted_domain))
+    colnames(predicted_domain) <- model
+    metadata <- cbind(metadata, predicted_domain)
   }
   
   # Remove the first column of metadata (which was just for initialization)
