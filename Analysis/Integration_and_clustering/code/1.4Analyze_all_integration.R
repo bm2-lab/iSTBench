@@ -10,6 +10,8 @@ library(funkyheatmap)
 library(kableExtra)
 
 
+setwd("iSTBench/")
+
 ###1.read data----
 ### Intergration mertic value
 # The consolidated results from all datasets are read, and the results are merged into a final file for visualization. 
@@ -26,12 +28,12 @@ intergration_re <- data.frame()
 for(d in datasets){
   if(d != "Mouse"){
     data_re <- matrix(,8,11)
-    path1 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/model_metric.csv", sep = "/")
-    path2 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
-    path3 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
-    path4 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/Intergration_value.csv", sep = "/")
+    path1 <- paste("Data", d, "IntergrationRe/Metric/model_metric.csv", sep = "/")
+    path2 <- paste("Data", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
+    path3 <- paste("Data", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
+    path4 <- paste("Data", d, "IntergrationRe/Metric/Intergration_value.csv", sep = "/")
     
-    d_data <- read_h5ad(paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
+    d_data <- read_h5ad(paste("Data", d, "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
     slices_count <- length(unique(d_data$obs$slices))
     
     metric1 <- read.csv(path1)
@@ -43,7 +45,7 @@ for(d in datasets){
     
     intergration_value <- read.csv(path4)
     
-    stat_fl <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe", sep = "/")
+    stat_fl <- paste("Data", d, "IntergrationRe", sep = "/")
     stat_flies <- list.files(stat_fl, pattern = "stats")
     time <- data.frame()
     memory <- data.frame()
@@ -88,10 +90,10 @@ for(d in datasets){
     intergration_re <- rbind(intergration_re, data_re)
   }else{
     data_re <- matrix(,8,11)
-    path1 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/model_metric.csv", sep = "/")
-    path2 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
-    path3 <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
-    d_data <- read_h5ad(paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
+    path1 <- paste("Data", d, "IntergrationRe/Metric/model_metric.csv", sep = "/")
+    path2 <- paste("Data", d, "IntergrationRe/Metric/CHAOS.csv", sep = "/")
+    path3 <- paste("Data", d, "IntergrationRe/Metric/PAS.csv", sep = "/")
+    d_data <- read_h5ad(paste("Data", d, "sample_all_data/Slices_combind_data.h5ad", sep = "/"))
     slices_count <- length(unique(d_data$obs$slices))
     
     metric1 <- read.csv(path1)
@@ -101,7 +103,7 @@ for(d in datasets){
     pas <- read.csv(path3)
     pas_mean <- apply(pas[,-which(colnames(pas) == "Model")],1,mean)
     
-    stat_fl <- paste("/home/dongkj/home_dkj/FD_yzy/Dataset/Intergration_Benchmark", d, "IntergrationRe", sep = "/")
+    stat_fl <- paste("Data", d, "IntergrationRe", sep = "/")
     stat_flies <- list.files(stat_fl, pattern = "stats")
     time <- data.frame()
     memory <- data.frame()
@@ -131,14 +133,12 @@ for(d in datasets){
     data_re <- as.data.frame(data_re)
     colnames(data_re) <- c("ARI", "NMI", "CHAOS", "PAS", "Time", "Memory", "bASW", "kBET", "dASW", "ilF1", "slices_count")
     
-    ###添加data id
     data_re$model <- models
     data_re$datasets <- d
     data_re$CellCount <- nrow(d_data)
     data_re$GeneCount <- ncol(d_data)
     data_re$AllCount <- data_re$CellCount * data_re$GeneCount
     
-    #data_re$name <- models
     data_re$Platform <- c("R", "Python", "R", "Python", "Python", "Python", "Python", "R")
     data_re$Modeltype <- c("Sta", "DL", "Sta", "DL", "DL", "DL", "DL", "Sta")
     data_re <- data_re[,c("model","datasets","Platform", "Modeltype" , "ARI", "NMI", "CHAOS", "PAS", "Time", "Memory", "CellCount", "GeneCount", "AllCount", "bASW", "kBET", "dASW", "ilF1", "slices_count")]
@@ -147,7 +147,7 @@ for(d in datasets){
   }
 }
 
-write.table(intergration_re, "/home/dongkj/home_dkj/FD_yzy/Result/1.Intergration/intergration_re_all.csv", col.names = T, row.names = F, sep = ",", quote = F)
+write.table(intergration_re, "Analysis/Integration_and_clustering/result/intergration_re_all.csv", col.names = T, row.names = F, sep = ",", quote = F)
 
 
 setwd("/iSTBench")
@@ -158,7 +158,7 @@ intergration_re1[which(intergration_re1$model == "GraphSTwithPASTE"),]$model  <-
 intergration_re1 <- intergration_re1[intergration_re1$model != "CN",]
 intergration_re1$model <- factor(intergration_re1$model, levels = c("Banksy", "CellCharter", "GraphST", "GraphST-PASTE", "MENDER", "NicheCompass", "Spado"))
 
-#### 2.1分别绘制指标----
+#### 2.1 Draw indicators respectively----
 datasets <- unique(intergration_re1$datasets)
 metric <- c("bASW", "kBET", "dASW", "ilF1")
 for(dataset in datasets){
@@ -414,7 +414,7 @@ p <- funky_heatmap(
   scale_column = T
 )
 p
-ggsave("Analysis/Integration_and_clustering/result/heatmap_all.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
+ggsave("Analysis/Integration_and_clustering/result/Integration_heatmap.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
 
 
 ###4. clustering result plotting----
@@ -613,8 +613,6 @@ ggsave("Analysis/Integration_and_clustering/result/MERFISH_Brain_clustering.pdf"
 
 ### 5.clustering funck heatmap----
 #### 5.1 load color data-----
-library(funkyheatmap)
-library(kableExtra)
 data("dynbenchmark_data")
 palettes <- dynbenchmark_data$palettes
 
@@ -725,7 +723,7 @@ p <- funky_heatmap(
   scale_column = T
 )
 p
-ggsave("Analysis/Integration_and_clustering/result/heatmap_all_clustering.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
+ggsave("Analysis/Integration_and_clustering/result/Clustering_heatmap.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
 
 
 ###6. time plot----
