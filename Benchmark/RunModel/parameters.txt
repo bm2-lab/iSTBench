@@ -21,7 +21,7 @@ runNormalization: A boolean variable indicating whether data normalization shoul
 isCODEX: A boolean variable indicates whether the data were obtained by CODEX sequencing. This is an optional parameter, with the default set to False.
 n_latent: Hyperparameter for the CellCharter model. This is a required parameter. The original recommendation is to conduct a grid search in the hyperparameter space [5, 10, 15] to select the best hyperparameter.
 nhood_layers: Hyperparameter for the CellCharter model. This is a required parameter. The original recommendation is to conduct a grid search in the hyperparameter space [2, 3, 4] to select the best hyperparameter.
-seed: Random seed for model execution. This is an optional parameter, with the default set to 1000.
+seed: Random seed for model execution. This is an optional parameter, with the default set to 1234.
 
 
 #Run_CN
