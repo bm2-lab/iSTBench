@@ -227,6 +227,73 @@ nohup python Benchmark/RunModel/Run_CellCharter.py \
 --output_file Data/TNBC/IntergrationRe \
 --sample CellCharter --nclust 4 --hvgs 2000 --runNormalization False \
 --n_latent 15 --nhood_layers 3 \
-> Data/TNBC/IntergrationRe/CellCharter.output &
+> Data/TNBC/SlicesEmbedding/CellCharter/CellCharter4.output &
+#  You need to modify the parameter "nclust" to identify the different number of domains
+```
+## CN
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/DLPFC_sample1/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample CN --nclust 7 \
+> Data/DLPFC_sample1/IntergrationRe/CN.output &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/DLPFC_sample2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample CN --nclust 5 \
+> Data/DLPFC_sample2/IntergrationRe/CN.output &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/DLPFC_sample3/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample CN --nclust 7 \
+> Data/DLPFC_sample3/IntergrationRe/CN.output &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/MERFISH/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH/IntergrationRe \
+--sample CN --nclust 8 --runNormalization False \
+> Data/MERFISH/IntergrationRe/CN.output &
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/MERFISH_Brain_S2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample CN --nclust 8 --runNormalization True --hvg 374 \
+> Data/MERFISH_Brain_S2/IntergrationRe/CN.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/STARMap/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/STARMap/IntergrationRe \
+--sample CN --nclust 4 --runNormalization True --hvgs 166 \
+> Data/STARMap/IntergrationRe/CN.output &
+```
+### Large-scale Dataset
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/Mouse/IntergrationRe \
+--sample CN --nclust 7 --runNormalization False \
+> Data/Mouse/IntergrationRe/CN.output &
+```
+### TNBC
+```python
+nohup python Benchmark/RunModel/Run_CN.py \
+--input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/TNBC/IntergrationRe \
+--sample CN --nclust 4 \
+> Data/TNBC/SlicesEmbedding/CN/CN4.output &
 #  You need to modify the parameter "nclust" to identify the different number of domains
 ```
