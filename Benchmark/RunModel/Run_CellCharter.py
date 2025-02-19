@@ -22,16 +22,16 @@ def process_data(input_file, output_file, sample, nclust, hvgs, runNormalization
     Preprocesses the input data and runs the model to predict domains using CellCharter or SCVI.
 
     Parameters:
-    input_file: Path to the multi-slice data that needs to be integrated (h5ad format)
-    output_file: Directory to save the output results
-    sample: Name for the output result files
-    nclust: Number of clusters (domains) to identify
-    hvgs: Number of highly variable genes to select (used during normalization)
-    runNormalization: Whether to normalize the data (True/False)
-    isCODEX: Whether the data comes from CODEX sequencing (True/False)
-    n_latent: Number of latent dimensions for the model
-    nhood_layers: Number of neighborhood layers for the CellCharter model
-    seed: Random seed for reproducibility
+    input_file: Path to the multi-slice data that needs to be integrated. All slices should be contained in a single h5ad file. Refer to the example data for the specific format. This is a required parameter.
+    output_file: Path to the directory where the output results will be saved. This is a required parameter.
+    sample: Name for the output result files. It is recommended to use the model name, for example, setting it as "CellCharter" will result in output files named "CellCharter.h5ad". This is a required parameter.
+    nclust: Number of identified domains. This is a required parameter.
+    hvgs: The number of highly variable genes identified if data normalization is performed. This is an optional parameter, with the default set to 5000.
+    runNormalization: A boolean variable indicating whether data normalization should be performed before integration. This is an optional parameter, with the default set to True.
+    isCODEX: A boolean variable indicates whether the data were obtained by CODEX sequencing. This is an optional parameter, with the default set to False.
+    n_latent: Hyperparameter for the CellCharter model. This is a required parameter. The original recommendation is to conduct a grid search in the hyperparameter space [5, 10, 15] to select the best hyperparameter.
+    nhood_layers: Hyperparameter for the CellCharter model. This is a required parameter. The original recommendation is to conduct a grid search in the hyperparameter space [2, 3, 4] to select the best hyperparameter.
+    seed: Random seed for model execution. This is an optional parameter, with the default set to 1234.
 
     Returns:
     None
