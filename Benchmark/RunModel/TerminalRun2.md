@@ -297,3 +297,312 @@ nohup python Benchmark/RunModel/Run_CN.py \
 > Data/TNBC/SlicesEmbedding/CN/CN4.output &
 #  You need to modify the parameter "nclust" to identify the different number of domains
 ```
+## GraphST
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/DLPFC_sample1/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample GraphST --nclust 7 --device cuda \
+> Data/DLPFC_sample1/IntergrationRe/GraphST.output  &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/DLPFC_sample2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample GraphST --nclust 5 --device cuda \
+> Data/DLPFC_sample2/IntergrationRe/GraphST.output  &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/DLPFC_sample3/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample GraphST --nclust 7 --device cuda \
+> Data/DLPFC_sample3/IntergrationRe/GraphST.output  &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/MERFISH/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH/IntergrationRe \
+--sample GraphST --nclust 8 --runNormalization False --device cuda \
+> Data/MERFISH/IntergrationRe/GraphST.output  &
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/MERFISH_Brain_S2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample GraphST --nclust 8 --hvgs 374 --device cuda \
+> Data/MERFISH_Brain_S2/IntergrationRe/GraphST.output  &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/STARMap/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/STARMap/IntergrationRe \
+--sample GraphST --nclust 4 --hvgs 166 --device cuda \
+> Data/STARMap/IntergrationRe/GraphST.output  &
+```
+### Large-scale Dataset
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
+--input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/Mouse/IntergrationRe \
+--sample GraphST --nclust 7 --runNormalization False --device cuda \
+> Data/Mouse/IntergrationRe/GraphST.output  &
+```
+## GraphST-PASTE
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/DLPFC_sample1/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 7 --device cuda \
+> Data/DLPFC_sample1/IntergrationRe/GraphST.output  &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/DLPFC_sample2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 5 --device cuda \
+> Data/DLPFC_sample2/IntergrationRe/GraphST.output  &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/DLPFC_sample3/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 7 --device cuda \
+> Data/DLPFC_sample3/IntergrationRe/GraphST.output  &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/MERFISH/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 8 --runNormalization False --device cuda \
+> Data/MERFISH/IntergrationRe/GraphST.output  &
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/MERFISH_Brain_S2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 8 --hvgs 374 --device cuda \
+> Data/MERFISH_Brain_S2/IntergrationRe/GraphST.output  &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/STARMap/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/STARMap/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 4 --hvgs 166 --device cuda \
+> Data/STARMap/IntergrationRe/GraphST.output  &
+```
+### Large-scale Dataset
+```python
+nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
+--input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/Mouse/IntergrationRe \
+--sample GraphSTwithPASTE --nclust 7 --runNormalization False --device cuda \
+> Data/Mouse/IntergrationRe/GraphST.output  &
+```
+## MENDER
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/DLPFC_sample1/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample MENDER --nclust 7 --tech Visium \
+> Data/DLPFC_sample1/IntergrationRe/MENDER.output &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/DLPFC_sample2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample MENDER --nclust 5 --tech Visium \
+> Data/DLPFC_sample2/IntergrationRe/MENDER.output &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/DLPFC_sample3/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample MENDER --nclust 7 --tech Visium \
+> Data/DLPFC_sample3/IntergrationRe/MENDER.output &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/MERFISH/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH/IntergrationRe \
+--sample MENDER --nclust 6 --runNormalization False --tech MERFISH \
+> Data/MERFISH/IntergrationRe/MENDER.output &
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/MERFISH_Brain_S2/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample MENDER --nclust 8 --tech MERFISH --hvgs 374 \
+> Data/MERFISH_Brain_S2/IntergrationRe/MENDER.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/STARMap/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/STARMap/IntergrationRe \
+--sample MENDER --nclust 4 --hvgs 166 --tech STARMap \
+> Data/STARMap/IntergrationRe/MENDER.output &
+```
+### Large-scale Dataset
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/Mouse/IntergrationRe \
+--sample MENDER --nclust 7 --runNormalization False --tech Unknown \
+> Data/Mouse/IntergrationRe/MENDER.output &
+```
+### TNBC
+```python
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/TNBC/IntergrationRe \
+--sample MENDER --nclust 4 --runNormalization False --tech MIBI \
+> Data/TNBC/SlicesEmbedding/MENDER/MENDER4.output &
+# You need to modify the parameter "nclust" to identify the different number of domains
+```
+## NicheCompass
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/DLPFC_sample1/sample_data \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample NicheCompass --nclust 7 \
+> Data/DLPFC_sample1/IntergrationRe/NicheCompass.output &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/DLPFC_sample2/sample_data \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample NicheCompass --nclust 5 \
+> Data/DLPFC_sample2/IntergrationRe/NicheCompass.output &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/DLPFC_sample3/sample_data \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample NicheCompass --nclust 7 \
+> Data/DLPFC_sample3/IntergrationRe/NicheCompass.output &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/MERFISH/sample_data \
+--output_file Data/MERFISH/IntergrationRe \
+--sample NicheCompass --nclust 8 --species mouse \
+> Data/MERFISH/IntergrationRe/NicheCompass.output &
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/MERFISH_Brain_S2/sample_data \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample NicheCompass --nclust 8 --species mouse --convertID True \
+> Data/MERFISH_Brain_S2/IntergrationRe/NicheCompass.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/STARMap/sample_data \
+--output_file Data/STARMap/IntergrationRe \
+--sample NicheCompass --nclust 4 --species mouse \
+> Data/STARMap/IntergrationRe/NicheCompass.output &
+```
+### Large-scale Dataset
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/Mouse/sample_data \
+--output_file Data/Mouse/IntergrationRe \
+--sample NicheCompass --nclust 7 --species mouse \
+> Data/Mouse/IntergrationRe/NicheCompass.output &
+```
+### TNBC
+```python
+nohup python Benchmark/RunModel/Run_NicheCompass.py \
+--input_file Data/TNBC/sample_data \
+--output_file Data/TNBC/IntergrationRe \
+--sample NicheCompass --nclust 4 \
+> Data/TNBC/SlicesEmbedding/NicheCompass/NicheCompass4.output &
+# You need to modify the parameter "nclust" to identify the different number of domains
+```
+## Spado
+### DLPFC S1
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/DLPFC_sample1/sample_all_data/Slices_combind_data.h5ad \
+-o Data/DLPFC_sample1/IntergrationRe \
+-s Spado -v 2000 -c 7 -n TRUE \
+> Data/DLPFC_sample1/IntergrationRe/Spado.output &
+```
+### DLPFC S2
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/DLPFC_sample2/sample_all_data/Slices_combind_data.h5ad \
+-o Data/DLPFC_sample2/IntergrationRe \
+-s Spado -v 2000 -c 5 -n TRUE \
+> Data/DLPFC_sample2/IntergrationRe/Spado.output &
+```
+### DLPFC S3
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/DLPFC_sample3/sample_all_data/Slices_combind_data.h5ad \
+-o Data/DLPFC_sample3/IntergrationRe \
+-s Spado -v 2000 -c 7 -n TRUE \
+> Data/DLPFC_sample3/IntergrationRe/Spado.output &
+``` 
+### MERFISH Preoptic
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/MERFISH/sample_all_data/Slices_combind_data.h5ad \
+-o Data/MERFISH/IntergrationRe \
+-s Spado -c 8 -n FALSE \
+> Data/MERFISH/IntergrationRe/Spado.output &
+``` 
+### MERFISH Brain S2-S12
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/MERFISH_Brain_S2/sample_all_data/Slices_combind_data.h5ad \
+-o Data/MERFISH_Brain_S2/IntergrationRe \
+-s Spado -v 374 -c 8 -n TRUE \
+> Data/MERFISH_Brain_S2/IntergrationRe/Spado.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/STARMap/sample_all_data/Slices_combind_data.h5ad \
+-o Data/STARMap/IntergrationRe \
+-s Spado -v 166 -c 4 -n TRUE \
+> Data/STARMap/IntergrationRe/Spado.output &
+```
+### Large-scale Dataset
+```python
+nohup Rscript Benchmark/RunModel/Run_Spado.R \
+-i Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
+-o Data/Mouse/IntergrationRe \
+-s Spado -c 7 -n FALSE \
+> Data/Mouse/IntergrationRe/Spado.output &
+``` 
+
