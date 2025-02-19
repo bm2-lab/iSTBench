@@ -1,3 +1,4 @@
+# Import necessary modules and libraries
 import os
 import warnings
 from datetime import datetime
@@ -28,98 +29,23 @@ from nichecompass.utils import (add_gps_from_gp_dict_to_adata,
 import argparse
 import mygene
 
-def train_model(adata, counts_key, adj_key, cat_covariates_keys, gp_names_key, active_gp_names_key,
-                gp_targets_mask_key, gp_targets_categories_mask_key, gp_sources_mask_key, gp_sources_categories_mask_key,
-                latent_key, conv_layer_encoder, active_gp_thresh_ratio, n_epochs, n_epochs_all_gps, lr, lambda_edge_recon,
-                lambda_gene_expr_recon, lambda_l1_masked, lambda_l1_addon, edge_batch_size, n_sampled_neighbors, use_cuda_if_available,cat_covariates_embeds_nums, seed):
-    
-    def model_execution():
-      model = NicheCompass(adata,
-                      counts_key=counts_key,
-                      adj_key=adj_key,
-                      cat_covariates_embeds_injection=["gene_expr_decoder"],
-                      cat_covariates_keys=cat_covariates_keys,
-                      cat_covariates_no_edges=[True],
-                      cat_covariates_embeds_nums=cat_covariates_embeds_nums,
-                      gp_names_key=gp_names_key,
-                      active_gp_names_key=gp_names_key,
-                      gp_targets_mask_key=gp_targets_mask_key,
-                      gp_targets_categories_mask_key=gp_targets_categories_mask_key,
-                      gp_sources_mask_key=gp_sources_mask_key,
-                      gp_sources_categories_mask_key=gp_sources_categories_mask_key,
-                      latent_key=latent_key,
-                      conv_layer_encoder=conv_layer_encoder,
-                      active_gp_thresh_ratio=active_gp_thresh_ratio,
-                      seed = seed)
-      
-      np.random.seed(seed)
-      import torch
-      torch.set_num_threads(10)
-      model.train(n_epochs=n_epochs,
-                n_epochs_all_gps=n_epochs_all_gps,
-                lr=lr,
-                lambda_edge_recon=lambda_edge_recon,
-                lambda_gene_expr_recon=lambda_gene_expr_recon,
-                lambda_l1_masked=lambda_l1_masked,
-                edge_batch_size=edge_batch_size,
-                n_sampled_neighbors=n_sampled_neighbors,
-                use_cuda_if_available=False,
-                verbose=False)
-      return model
-    
-    start_time = time.time()
-    mem_usage = memory_usage((model_execution,), max_usage = True, retval=True)
-    end_time = time.time()
-
-    model = mem_usage[1]
-    mem_usage_values = mem_usage[0]
-    return mem_usage_values, end_time - start_time, model
-
-
-def find_optimal_resolution(adata, target_clusters, key_added, neighbors_key, max_iter=500, tol=1):
-    lower_res = 0.0
-    upper_res = 5.0
-    optimal_res = (lower_res + upper_res) / 2
-    iter = 0
-    
-    while iter < max_iter:
-        iter += 1
-        sc.tl.leiden(adata, resolution=optimal_res, neighbors_key=neighbors_key, key_added = key_added)
-        num_clusters = adata.obs['predicted_domain'].nunique()
-        
-        if abs(num_clusters - target_clusters) <= tol:
-            return optimal_res
-        elif num_clusters < target_clusters:
-            lower_res = optimal_res
-        else:
-            upper_res = optimal_res
-        
-        optimal_res = (lower_res + upper_res) / 2
-    
-    return optimal_res
-
-def convert_id(adata, from_id, to_id, species):
-    mg = mygene.MyGeneInfo()
-    original_ids = adata.var_names.tolist()
-    query_result = mg.querymany(original_ids, scopes=from_id, fields=to_id, species=species)
-    id_mapping = {}
-    for item in query_result:
-        if to_id in item:
-            id_mapping[item['query']] = item[to_id]
-        else:
-            id_mapping[item['query']] = item['query']
-            
-    new_var_names = [id_mapping.get(id, id) for id in adata.var_names]
-    adata.var[to_id] = new_var_names
-    adata.var_names = adata.var[to_id]
-    return adata
-
-
+# Main function to run the NicheCompass pipeline
+# This includes reading input data, combining datasets, training the model, and saving the results
 def run_nichecompass(input_file, output_file, sample, nclust, species,convertID,from_id,to_id, seed):
+    ''' 
+    input_file: Each slice needs to be saved separately to an h5ad file, and the path represents the location where these slices are stored. Refer to the example data for the specific format. This is a required parameter.
+    output_file: Path to the directory where the output results will be saved. This is a required parameter.
+    sample: Name for the output result files. It is recommended to use the model name, for example, setting it as "NicheCompass" will result in output files named "NicheCompass.h5ad". This is a required parameter.
+    nclust: Number of identified domains. This is a required parameter.
+    species: The detected species type can be set to "human" and "mouse". This is an optional parameter, with the default set to "human".
+    convertID: Whether gene id conversion is required. Genes need to be named with "symbol". This is an optional parameter, with the default set to False.
+    from_id/to_id: If a gene id conversion is required, enter the original id type and the target id type. They are both optional parameters. The default of to_id is "symbol". The gene id conversion is based on the "mygene" package. The type of gene id allowed to be input can be referred to "mygene".
+    seed: Random seed for model execution. This is an optional parameter, with the default set to 0.
+    '''
+  
     # Define other constants and configurations here
     spatial_key = "spatial"
     n_neighbors = 4
-    
     counts_key = "counts"
     adj_key = "spatial_connectivities"
     cat_covariates_keys = ["slices"]
@@ -149,10 +75,11 @@ def run_nichecompass(input_file, output_file, sample, nclust, species,convertID,
     spot_size = 0.2
     differential_gp_test_results_key = "nichecompass_differential_gp_test_results"
 
-    # Define paths
-    ga_data_folder_path = "/home/dongkj/home_dkj/FD_yzy/Intergrated_method/NicheCompass/nichecompass-reproducibility-main/dkj_re/data/gene_annotations"
-    gp_data_folder_path = "/home/dongkj/home_dkj/FD_yzy/Intergrated_method/NicheCompass/nichecompass-reproducibility-main/dkj_re/data/gene_programs"
-    so_data_folder_path = "/home/dongkj/home_dkj/FD_yzy/Intergrated_method/NicheCompass/nichecompass-reproducibility-main/dkj_re/data/spatial_omics"
+    # Paths for the gene annotation, gene program, and spatial data
+    # The value must be modified based on the actual path
+    ga_data_folder_path = "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench-main/Benchmark/RunModel/NicheCompass/gene_annotations"
+    gp_data_folder_path = "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench-main/Benchmark/RunModel/NicheCompass/gene_programs"
+    so_data_folder_path = "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench-main/Benchmark/RunModel/NicheCompass/spatial_omics"
     omnipath_lr_network_file_path = f"{gp_data_folder_path}/omnipath_lr_network.csv"
     collectri_tf_network_file_path = f"{gp_data_folder_path}/collectri_tf_network_{species}.csv"
     nichenet_lr_network_file_path = f"{gp_data_folder_path}/nichenet_lr_network_v2_{species}.csv"
@@ -322,6 +249,102 @@ def run_nichecompass(input_file, output_file, sample, nclust, species,convertID,
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(["Memory_Usage_MiB", "Execution_Time_s"])
         csvwriter.writerow([memory_usage_value, execution_time])
+
+
+# Function to train the NicheCompass model
+def train_model(adata, counts_key, adj_key, cat_covariates_keys, gp_names_key, active_gp_names_key,
+                gp_targets_mask_key, gp_targets_categories_mask_key, gp_sources_mask_key, gp_sources_categories_mask_key,
+                latent_key, conv_layer_encoder, active_gp_thresh_ratio, n_epochs, n_epochs_all_gps, lr, lambda_edge_recon,
+                lambda_gene_expr_recon, lambda_l1_masked, lambda_l1_addon, edge_batch_size, n_sampled_neighbors, use_cuda_if_available,cat_covariates_embeds_nums, seed):
+    
+    # Executes the model training process by initializing NicheCompass, setting parameters, and starting training
+    def model_execution():
+      model = NicheCompass(adata,
+                      counts_key=counts_key,
+                      adj_key=adj_key,
+                      cat_covariates_embeds_injection=["gene_expr_decoder"],
+                      cat_covariates_keys=cat_covariates_keys,
+                      cat_covariates_no_edges=[True],
+                      cat_covariates_embeds_nums=cat_covariates_embeds_nums,
+                      gp_names_key=gp_names_key,
+                      active_gp_names_key=gp_names_key,
+                      gp_targets_mask_key=gp_targets_mask_key,
+                      gp_targets_categories_mask_key=gp_targets_categories_mask_key,
+                      gp_sources_mask_key=gp_sources_mask_key,
+                      gp_sources_categories_mask_key=gp_sources_categories_mask_key,
+                      latent_key=latent_key,
+                      conv_layer_encoder=conv_layer_encoder,
+                      active_gp_thresh_ratio=active_gp_thresh_ratio,
+                      seed = seed)
+      
+      np.random.seed(seed)
+      import torch
+      torch.set_num_threads(10)
+      model.train(n_epochs=n_epochs,
+                n_epochs_all_gps=n_epochs_all_gps,
+                lr=lr,
+                lambda_edge_recon=lambda_edge_recon,
+                lambda_gene_expr_recon=lambda_gene_expr_recon,
+                lambda_l1_masked=lambda_l1_masked,
+                edge_batch_size=edge_batch_size,
+                n_sampled_neighbors=n_sampled_neighbors,
+                use_cuda_if_available=False,
+                verbose=False)
+      return model
+    
+    # Time the model training and memory usage
+    start_time = time.time()
+    mem_usage = memory_usage((model_execution,), max_usage = True, retval=True)
+    end_time = time.time()
+
+    model = mem_usage[1]
+    mem_usage_values = mem_usage[0]
+    return mem_usage_values, end_time - start_time, model
+
+
+# Function to find the optimal resolution for Leiden clustering
+# This helps in determining the best resolution for the clusters based on a given number of target clusters
+def find_optimal_resolution(adata, target_clusters, key_added, neighbors_key, max_iter=500, tol=1):
+    lower_res = 0.0
+    upper_res = 5.0
+    optimal_res = (lower_res + upper_res) / 2
+    iter = 0
+    
+    while iter < max_iter:
+        iter += 1
+        sc.tl.leiden(adata, resolution=optimal_res, neighbors_key=neighbors_key, key_added = key_added)
+        num_clusters = adata.obs['predicted_domain'].nunique()
+        
+        if abs(num_clusters - target_clusters) <= tol:
+            return optimal_res
+        elif num_clusters < target_clusters:
+            lower_res = optimal_res
+        else:
+            upper_res = optimal_res
+        
+        optimal_res = (lower_res + upper_res) / 2
+    
+    return optimal_res
+
+# Function to convert gene identifiers from one format to another
+# This function is used to map identifiers from one gene ID system to another (e.g., Ensembl to Symbol)
+def convert_id(adata, from_id, to_id, species):
+    mg = mygene.MyGeneInfo()
+    original_ids = adata.var_names.tolist()
+    query_result = mg.querymany(original_ids, scopes=from_id, fields=to_id, species=species)
+    id_mapping = {}
+    for item in query_result:
+        if to_id in item:
+            id_mapping[item['query']] = item[to_id]
+        else:
+            id_mapping[item['query']] = item['query']
+            
+    new_var_names = [id_mapping.get(id, id) for id in adata.var_names]
+    adata.var[to_id] = new_var_names
+    adata.var_names = adata.var[to_id]
+    return adata
+
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run NicheCompass")
