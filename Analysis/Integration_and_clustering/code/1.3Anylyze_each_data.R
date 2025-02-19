@@ -10,6 +10,12 @@ library(gridExtra)
 library(anndata)
 library(Seurat)
 
+
+# fx_1NN: Calculates the nearest neighbor distance for a given cell.
+# fx_kNN: Computes k nearest neighbors for a given cell and checks the cluster consistency.
+# fx_CHAOS: Calculates a metric that measures the distance consistency for each cluster based on spatial coordinates.
+# fx_PAS: Computes a metric based on k-nearest neighbor analysis to evaluate cluster consistency in terms of spatial distribution.
+
 fx_1NN = function(i,location_in){
   line_i = rep(0,dim(location_in)[1])
   line_i = pdist(location_in[i,],location_in[-i,])@dist
@@ -131,12 +137,14 @@ metric2_cal <- function(metadata, m, domain){
 }
 
 ###set path to iSTBench
-setwd("/iSTBench")
+setwd("iSTBench/")
 
 metadata <- read.csv("Data/BaristaSeq/IntergrationRe/Metric/metaPredictedRe.csv")
 metadata_original <- read.csv("Data/BaristaSeq/IntergrationRe/Metric/metaPredictedRe.csv")
 
 ###1. domain matching----
+# This section loads the dataset, performs domain matching, and updates metadata with new domain assignments for each model.
+
 domain = unique(metadata$original_domain)
 model <- colnames(metadata)[6:ncol(metadata)]
 for(m in model){
@@ -160,6 +168,11 @@ colnames(metadata) <- c(colnames(metadata)[1:4],"Ground_truth", model)
 colnames(metadata_original) <- c(colnames(metadata)[1:4],"Ground_truth", model)
 
 ###2.clustering metric calculation----
+# This section calculates clustering metrics such as ARI (Adjusted Rand Index) and NMI (Normalized Mutual Information) for each model 
+# by comparing the predicted domains with the original domain labels.
+# Calculates two additional metrics (CHAOS and PAS) for each model using the fx_CHAOS and fx_PAS functions,
+# which measure the consistency of predicted domains across different slices and the neighborhood similarity, respectively.
+
 model_ari <- c()
 model_nmi <- c()
 for(m in model){
@@ -212,15 +225,13 @@ PAS$Model <- model
 rownames(PAS) <- model
 colnames(PAS) <- c(slices, "Model")
 
-###The Settings are based on the actual running model
-CHAOS$Model <- factor(CHAOS$Model, levels = c("Banksy", "CellCharter", "CN", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado"))
-PAS$Model <- factor(PAS$Model, levels = c("Banksy", "CellCharter", "CN", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado"))
-
 write.table(CHAOS, "Data/BaristaSeq/IntergrationRe/Metric/CHAOS.csv", col.names = T,row.names = F,sep = ",",quote = F)
 write.table(PAS, "Data/BaristaSeq/IntergrationRe/Metric/PAS.csv", col.names = T,row.names = F,sep = ",",quote = F)
 
 
 ###3.clustering metric plot----
+# The clustering metrics (ARI, NMI, CHAOS, PAS) are plotted for each model using `ggplot2` and saved as PDF files.
+
 CHAOS[which(CHAOS$Model == "GraphSTwithPASTE"), ]$Model <- "GraphST-PASTE"
 PAS[which(PAS$Model == "GraphSTwithPASTE"), ]$Model <- "GraphST-PASTE"
 model_metric[which(model_metric$model == "GraphSTwithPASTE"), ]$model <- "GraphST-PASTE"
@@ -295,6 +306,9 @@ ggsave("Data/BaristaSeq/IntergrationRe/Metric/BaristaSeq_metric.pdf", plot = p_a
 
 
 ###4. domain plotting---- 
+# This section generates plots to visualize the predicted domains for each slice of the dataset across different models.
+# It uses `ggplot2` to create scatter plots for each slice, where the color of each point represents the predicted domain.
+
 slices <- unique(metadata$slices)
 slices <- sort(slices)
 model <- colnames(metadata)[5:ncol(metadata)]
@@ -335,8 +349,13 @@ ggsave("Data/BaristaSeq/IntergrationRe/Metric/BaristaSeq_Result_domain.pdf", plo
 
 
 ###5. Umap plotting----
+# Performs UMAP dimensionality reduction on the original data and visualizes the results using `Seurat`'s UMAP functionality.
+# Both slices and original domains are plotted to understand the separation between different regions and domains.
+
 umapPlot <- function(originalEmb, metadata, col_slices, col_domain, isOriginal = FALSE){
-  ###originalEmb 行是细胞 列是基因
+  # Create UMAP plots using Seurat, where the data is normalized, scaled, and reduced to visualize the clustering of cells 
+  # based on both slices and predicted domains.
+  
   SeuratObj <- CreateSeuratObject(t(originalEmb),meta.data = metadata)
   SeuratObj <- NormalizeData(SeuratObj)
   all.genes <- rownames(SeuratObj)
@@ -437,11 +456,10 @@ umapPlot <- function(originalEmb, metadata, col_slices, col_domain, isOriginal =
   
   return(list(SlicesUmap = p1, DomainUmap = p2))
 }
-###设置颜色----
+
 col_slices <- c("1" = "#FFFF54", "2" = "#6CE3FB", "3" = "#EB49F7" )
 col_domain <- c("VISp_I" = "#2F6DA1", "VISp_II/III" = "#EB49F7", "VISp_IV" = "#6CE3FB", "VISp_V" = "#EB594F", "VISp_VI" = "#FFFF54", "VISp_wm" ="#3B8749" )
 
-###读取路径文件----
 dataPath <- read.table("Data/BaristaSeq/IntergrationRe/Metric/domain_plot.txt")
 dataPath$Model <- apply(dataPath, 1, function(x){
   unlist(strsplit(x, split = ":"))[1]
@@ -453,13 +471,11 @@ dataPath$Path <- apply(dataPath, 1, function(x){
 dataPath <- dataPath[match(c("Banksy", "CellCharter", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado") ,dataPath$Model),]
 
 
-###original数据读取和绘图----
 SlicesUmapList <- list()
 DomainUmapList <- list()
 originalData <- read_h5ad("Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad")
 metadata <- originalData$obs
 
-###model embedding数据读取和绘图----
 for(i in 1:nrow(dataPath)){
   if(dataPath[i,]$Model == "GraphST" | dataPath[i,]$Model == "GraphSTwithPASTE"){
     preData <- read_h5ad(dataPath[i,]$Path) 
