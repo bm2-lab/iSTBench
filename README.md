@@ -46,7 +46,7 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 --sample MENDER --nclust 7 --tech BaristaSeq \
 > Data/BaristaSeq/IntergrationRe/MENDER.output &
 ```
-The "input_file" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The complete code for running other methods is available in the "Benchmark/RunModel/TerminalRun.sh" file. Each method has specific parameter settings, and the details of these parameters can be found in the "Benchmark/RunModel/parameters.md" file.
+The "input_file" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The complete code for running other methods is available in the "Benchmark/RunModel/TerminalRun.md" file. Each method has specific parameter settings, and the details of these parameters can be found in the "Benchmark/RunModel/parameters.md" file.
 ## 2. Spatial alignment
 In this section, we evaluate the performance of different methods in spatial alignment. We used the STAligner framework to correct coordinates between slices based on the integration embeddings and domain identification from each method. To demonstrate the effectiveness of spatial alignment, we applied rotations to slices within the same dataset. This approach clearly illustrates the impact of spatial alignment. Specifically, rotations of 0°, 20°, 40°, and so on were applied to each slice in the dataset. The code for performing slice rotations on the specified data is as follows:
 ```python
