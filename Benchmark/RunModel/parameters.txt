@@ -8,7 +8,7 @@ hvgs (abbreviation: h): The number of highly variable genes identified if data n
 runNormalization (abbreviation: n): A boolean variable indicating whether data normalization should be performed before integration. This is an optional parameter, with the default set to TRUE.
 k_geom (abbreviation: k): Hyperparameter for the Banksy model. This is an optional parameter, with the default set to c(15, 30).
 lambda (abbreviation: l): Hyperparameter for the Banksy model. This is an optional parameter, with the default set to 0.8.
-SEED (abbreviation: S): Random seed for model execution. This is an optional parameter, with the default set to 1234.
+SEED (abbreviation: S): Random seed for model execution. This is an optional parameter, with the default set to 1000.
 
 
 #Run_CellCharter
