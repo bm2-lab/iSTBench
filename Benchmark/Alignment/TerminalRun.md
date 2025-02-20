@@ -11,7 +11,7 @@ nohup python Benchmark/Alignment/Rotate_spatial.py \
 ## Alignment
 ```python
 # Banksy
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -21,7 +21,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/Banksy.output &
 
 # CellCharter
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -31,7 +31,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/CellCharter.output &
 
 # CN
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -41,7 +41,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/CN.output &
 
 # GraphST
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -51,7 +51,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/GraphST.output &
 
 # GraphST-PASTE
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/GraphSTwithPASTE.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -61,7 +61,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/GraphSTwithPASTE.output &
 
 # NicheCompass
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/NicheCompass.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -71,7 +71,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/NicheCompass.output &
 
 # MENDER
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -81,7 +81,7 @@ nohup python STAlian_terminal_ownEmbedding.py \
 >Benchmark/Alignment/Result/BaristaSeq/MENDER.output &
 
 # Spado
-nohup python STAlian_terminal_ownEmbedding.py \
+nohup python Benchmark/Alignment/Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data_rotate \
 --input_data Data/BaristaSeq/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
