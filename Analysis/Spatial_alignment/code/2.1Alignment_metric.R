@@ -9,7 +9,7 @@ library(tidyr)
 library(reticulate)
 
 # Specify the Python environment to use (required by SeuratDisk for Python-R integration)
-use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
+# use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
 
 
 # Command-line argument definition
