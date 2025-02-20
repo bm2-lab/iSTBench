@@ -5,7 +5,7 @@ library(anndata)
 library(dplyr)
 library(ggplot2)
 
-setwd("~/home_dkj/FD_yzy/Result/GitHub_test/iSTBench")
+setwd("iSTBench")
 
 ###1.read data----
 ###1.1 Intergration value
@@ -20,10 +20,8 @@ for(d in datasets){
   data_re <- matrix(,length(models),2)
 
   # Read accuracy and ratio metrics from CSV files for each dataset
-  path1 <- paste("/home/dongkj/home_dkj/FD_yzy/Landmark_based_intergration/Dataset", d, "Metric/domain_match_rate.csv", sep = "/")
-  path2 <- paste("/home/dongkj/home_dkj/FD_yzy/Landmark_based_intergration/Dataset", d, "Metric/domain_match_ratio.csv", sep = "/")
-  # path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
-  # path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
+  path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
+  path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
   
   if(d == "MERFISH_Brain_S3"){
     Accuracy <-read.csv(path1)
@@ -61,10 +59,8 @@ for(d in datasets){
 intergration_sd <- data.frame()
 for(d in datasets){
   data_re <- matrix(,length(models),4)
-  path1 <- paste("/home/dongkj/home_dkj/FD_yzy/Landmark_based_intergration/Dataset", d, "Metric/domain_match_rate.csv", sep = "/")
-  path2 <- paste("/home/dongkj/home_dkj/FD_yzy/Landmark_based_intergration/Dataset", d, "Metric/domain_match_ratio.csv", sep = "/")
-  # path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
-  # path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
+  path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
+  path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
   
   if(d == "MERFISH_Brain_S3"){
     Accuracy <-read.csv(path1)
