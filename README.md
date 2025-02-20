@@ -76,18 +76,18 @@ The "input_file", "input_data" and "output_file" should be set to the exact path
 ## 3. Slice representation
 In this section, we use the abundance of identified spatial domains in each slice as the representation. To do this, domain information must first be obtained using the integration method, and then slice representations are generated based on domain abundance. Taking MENDER as an example, the relevant code is as follows:
 ```python
-# Firstly, domains are identified based on MENDER, where the number of domains is set to 6
+# Firstly, domains are identified based on MENDER, where the number of domains is set to 6 or others
 nohup python Benchmark/RunModel/Run_MENDER.py \
---input_file ./Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
---output_file ./Data/TNBC/SlicesEmbedding/MENDER/6 \
+--input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/TNBC/SlicesEmbedding/MENDER/6 \
 --sample MENDER --nclust 6 --runNormalization False --tech MIBI \
-> Data/TNBC/SlicesEmbedding/MENDER_6.output &
+> Data/TNBC/SlicesEmbedding/MENDER/MENDER6.output &
 
 # Slices are represented and clustered based on domain abundance.
 nohup Rscript Benchmark/SliceRepresentation/SliceRepresentation.R \
--f ./Data/TNBC/SlicesEmbedding/MENDER \
--m MENDER -cn 3 \
-> Data/TNBC/SlicesEmbedding/MENDER/SlicesRepresentation.output &
+-f Data/TNBC/SlicesEmbedding/MENDER \
+-m MENDER -n 3 \
+> Data/TNBC/SlicesEmbedding/MENDER/Metric/SlicesClustering.output &
 ```
 The specific meanings of the parameters can be referenced in the "Benchmark/SliceRepresentation/parameters.md" file. 
 # Modular solution
