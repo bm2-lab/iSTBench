@@ -162,9 +162,7 @@ def main(input_file, input_data, output_file, batches, landmark_domain, landmark
     ax1.elev = 20
     ax1.azim = -40
     ax1.set_xlabel('')
-    ax1.set_ylabel
-
-('')
+    ax1.set_ylabel('')
     ax1.set_zlabel('')
     ax1.set_xticklabels([])
     ax1.set_yticklabels([])
