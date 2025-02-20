@@ -36,14 +36,14 @@ As an example, here is the relevant code for GraphST and MENDER on BaristaSeq da
 nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample GraphST --nclust 7 --device cuda \
+--sample GraphST --nclust 6 --device cuda \
 > Data/BaristaSeq/IntergrationRe/GraphST.output  &
 
 # MENDER
 nohup python Benchmark/RunModel/Run_MENDER.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample MENDER --nclust 7 --tech BaristaSeq \
+--sample MENDER --nclust 6 --tech BaristaSeq \
 > Data/BaristaSeq/IntergrationRe/MENDER.output &
 ```
 The "input_file" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The complete code for running other methods is available in the "Benchmark/RunModel/TerminalRun.md" file. Each method has specific parameter settings, and the details of these parameters can be found in the "Benchmark/RunModel/parameters.md" file.
