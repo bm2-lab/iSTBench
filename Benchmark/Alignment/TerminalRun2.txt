@@ -1,0 +1,1877 @@
+### DLPFC S3
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 0 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 1 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 3 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 5 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 4 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_7" --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3/Spado.output &
+
+}
+
+###DLPFC-sample3-L6
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 3 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 6 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 6 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 4 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 1 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L6 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_6" --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L6/Spado.output &
+
+}
+
+###DLPFC-sample3-L5
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 4 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 0 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 4 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 6 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L5 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_1" --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L5/Spado.output &
+
+}
+
+###DLPFC-sample3-L4
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 5 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 4 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 5 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 1 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 3 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 3 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L4 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_2" --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L4/Spado.output &
+
+}
+
+###DLPFC-sample3-L3
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 3 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 7 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 0 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L3 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_4" --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L3/Spado.output &
+
+}
+
+###DLPFC-sample3-L2
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 6 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 3 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 4 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 5 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 7 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 0 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L2 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_5" --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L2/Spado.output &
+
+}
+
+###DLPFC-sample3-L1
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 7 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 5 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 2 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain 5 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample3/sample_data_rotate \
+--input_data /Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample3_L1 \
+--batches "slices2,slices4,slices1,slices3" \
+--landmark_domain "Domain_7_3" --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample3_L1/Spado.output &
+
+}
+
+###DLPFC-sample1_WM
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 6 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 6 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 7 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 7 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/MENDER.output &
+
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_7" --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_WM/Spado.output &
+
+}
+
+###DLPFC-sample1_L6
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 7 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 6 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_6" --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L6/Spado.output &
+
+}
+
+###DLPFC-sample1_L5
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_4" --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L5/Spado.output &
+
+}
+
+###DLPFC-sample1_L4
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 6 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 6 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_2" --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L4/Spado.output &
+
+}
+
+###DLPFC-sample1_L3
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_1" --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L3/Spado.output &
+
+}
+
+###DLPFC-sample1_L2
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 6 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L2 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_3" --landmark_domain_original L2 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L2/Spado.output &
+
+}
+
+###DLPFC-sample1_L1
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample1/sample_data_rotate \
+--input_data /Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample1_L1 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_7_5" --landmark_domain_original L1 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample1_L1/Spado.output &
+
+}
+
+###DLPFC-sample2_WM
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_WM \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_5_5" --landmark_domain_original WM --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_WM/Spado.output &
+
+}
+
+###DLPFC-sample2_L6
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L6 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_5_4" --landmark_domain_original L6 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L6/Spado.output &
+
+}
+
+###DLPFC-sample2_L5
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L5 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_5_1" --landmark_domain_original L5 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L5/Spado.output &
+
+}
+
+###DLPFC-sample2_L4
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 4 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 5 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L4 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_5_3" --landmark_domain_original L4 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L4/Spado.output &
+
+}
+
+###DLPFC-sample2_L3
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 1 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 3 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 2 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/GraphSTwithPASTE.output &
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/MENDER.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain 0 --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/DLPFC_sample2/sample_data_rotate \
+--input_data /Data/DLPFC_sample2/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/DLPFC_sample2_L3 \
+--batches "slices2,slices3,slices1,slices4" \
+--landmark_domain "Domain_5_2" --landmark_domain_original L3 --domain predicted_domain \
+--step 10 --runNormalization True --hvgs 10000 \
+>Benchmark/Alignment/Result/DLPFC_sample2_L3/Spado.output &
+
+}
+
+###BaristaSeq
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 5 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 5 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 2 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 6 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 4 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/GraphSTwithPASTE.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 3 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/NicheCompass.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain 4 --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/BaristaSeq/sample_data_rotate \
+--input_data /Data/BaristaSeq/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/BaristaSeq \
+--batches "slices1,slices2,slices3" \
+--landmark_domain "Domain_6_4" --landmark_domain_original VISp_wm --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/BaristaSeq/Spado.output &
+
+
+}
+
+
+###MERFISH
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 2 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 1 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 4 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 4 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 5 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/GraphSTwithPASTE.output &
+
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 0 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/NicheCompass.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain 1 --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/MENDER.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH/sample_data_rotate \
+--input_data /Data/MERFISH/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH \
+--batches "slices1,slices4,slices2,slices5,slices3" \
+--landmark_domain "Domain_8_2" --landmark_domain_original BST --domain predicted_domain \
+--step 10 --runNormalization False  \
+>Benchmark/Alignment/Result/MERFISH/Spado.output &
+
+}
+
+
+###MERFISH_Brain_S3
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 3 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 2 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 4 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/CN.output &
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 6 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 7 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/GraphSTwithPASTE.output &
+
+
+###MENDER
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/MENDER.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 3 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/MENDER.output &
+
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain 1 --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/NicheCompass.output &
+
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/MERFISH_Brain_S3/sample_data_rotate \
+--input_data /Data/MERFISH_Brain_S3/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
+--batches "slices2,slices1" \
+--landmark_domain "Domain_8_4" --landmark_domain_original "corpus callosum" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/MERFISH_Brain_S3/Spado.output &
+
+
+}
+
+
+###STARMap
+{
+###Banksy
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/Banksy.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain 2 --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/Banksy.output &
+
+###CellCharter
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/CellCharter.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain 0 --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/CellCharter.output &
+
+###CN
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/CN.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain 2 --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/CN.output &
+
+
+###GraphST
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/GraphST.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain 4 --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/GraphST.output &
+
+###GraphSTwithPASTE
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/GraphSTwithPASTE.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain 4 --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/GraphSTwithPASTE.output &
+
+###NicheCompass
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/NicheCompass.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain 1 --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/NicheCompass.output &
+
+###Spado
+nohup python STAlian_terminal_ownEmbedding.py \
+--input_file /Data/STARMap/sample_data_rotate \
+--input_data /Data/STARMap/IntergrationRe/Spado.h5ad \
+--output_file Benchmark/Alignment/Result/STARMap \
+--batches "slices1,slices3,slices2" \
+--landmark_domain "Domain_4_4" --landmark_domain_original "4" --domain predicted_domain \
+--step 10 --runNormalization False \
+>Benchmark/Alignment/Result/STARMap/Spado.output &
+
+}
+
