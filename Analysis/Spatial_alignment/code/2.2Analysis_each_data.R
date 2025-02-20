@@ -6,7 +6,7 @@ library(cowplot)
 library(reshape2)
 library(scatterplot3d)
 library(Seurat)
-setwd("~/home_dkj/FD_yzy/Result/GitHub_test/iSTBench")
+setwd("iSTBench")
 
 ### 1. Read Data ----
 # Load metadata and prepare necessary variables
