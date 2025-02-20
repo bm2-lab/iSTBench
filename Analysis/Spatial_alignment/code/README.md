@@ -7,7 +7,7 @@ slices (abbreviation: s): The file name of each slice. Different slices are sepa
 Terminal run:
 ```
 ```python
-nohup /opt/R/4.3.2/lib/R/bin/Rscript Analysis/Spatial_alignment/code/2.1Alignment_metric.R \
+nohup Rscript Analysis/Spatial_alignment/code/2.1Alignment_metric.R \
 -i "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench/Benchmark/Alignment/Result/BaristaSeq" \
 -s "slices1,slices2,slices3" \
 > /NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench/Benchmark/Alignment/Result/BaristaSeq/Metric/metric.output &
