@@ -101,12 +101,12 @@ for(d in datasets){
   intergration_sd <- rbind(intergration_sd, data_re)
 }
 
-# Save the integration result and standard deviation to CSV files
-write.table(intergration_re, "Analysis/Spatial_alignment/result/intergration_re.csv", col.names = T, row.names = F, sep = ",", quote = F)
-write.table(intergration_sd, "Analysis/Spatial_alignment/result/intergration_sd.csv", col.names = T, row.names = F, sep = ",", quote = F)
+# Save the alignment result and standard deviation to CSV files
+write.table(intergration_re, "Analysis/Spatial_alignment/result/alignment_re.csv", col.names = T, row.names = F, sep = ",", quote = F)
+write.table(intergration_sd, "Analysis/Spatial_alignment/result/alignment_sd.csv", col.names = T, row.names = F, sep = ",", quote = F)
 
-#intergration_re <- read.csv("Analysis/Spatial_alignment/result/intergration_re.csv")
-#intergration_sd <- read.csv("Analysis/Spatial_alignment/result/intergration_sd.csv")
+#intergration_re <- read.csv("Analysis/Spatial_alignment/result/alignment_re.csv")
+#intergration_sd <- read.csv("Analysis/Spatial_alignment/result/alignment_sd.csv")
 
 
 ### 2. Point with Error Bar ----
