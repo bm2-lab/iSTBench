@@ -34,15 +34,15 @@ As an example, here is the relevant code for GraphST and MENDER:
 ```python
 # GraphST
 nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
---input_file ./Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
---output_file ./Data/BaristaSeq/IntergrationRe \
+--input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/BaristaSeq/IntergrationRe \
 --sample GraphST --nclust 7 --device cuda \
 > Data/BaristaSeq/IntergrationRe/GraphST.output  &
 
 # MENDER
 nohup python Benchmark/RunModel/Run_MENDER.py \
---input_file ./Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
---output_file ./Data/BaristaSeq/IntergrationRe \
+--input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/BaristaSeq/IntergrationRe \
 --sample MENDER --nclust 7 --tech BaristaSeq \
 > Data/BaristaSeq/IntergrationRe/MENDER.output &
 ```
