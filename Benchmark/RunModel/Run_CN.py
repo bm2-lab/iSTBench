@@ -19,18 +19,17 @@ from sklearn.cluster import KMeans
 from threadpoolctl import threadpool_limits
 
 def process_data(input_file, output_file, sample, nclust, runNormalization=True, hvgs=4000, n_pcs=50, seed=0):
-  '''
-  Parameters:
-  input_file: Path to the multi-slice data that needs to be integrated. All slices should be contained in a single h5ad file. Refer to the example data for the specific format. This is a required parameter.
-  output_file: Path to the directory where the output results will be saved. This is a required parameter.
-  sample: Name for the output result files. It is recommended to use the model name, for example, setting it as "CN" will result in output files named "CN.h5ad". This is a required parameter.
-  nclust: Number of identified domains. This is a required parameter.
-  runNormalization: A boolean variable indicating whether data normalization should be performed before integration. This is an optional parameter, with the default set to True.
-  hvgs: The number of highly variable genes identified if data normalization is performed. This is an optional parameter, with the default set to 4000.
-  n_pcs: The number of principal components set when performing PCA dimensionality reduction on the data. This is an optional parameter, with the default set to 50.
-  seed: Random seed for model execution. This is an optional parameter, with the default set to 0.
-  '''
-
+    '''
+    Parameters:
+    input_file: Path to the multi-slice data that needs to be integrated. All slices should be contained in a single h5ad file. Refer to the example data for the specific format. This is a required parameter.
+    output_file: Path to the directory where the output results will be saved. This is a required parameter.
+    sample: Name for the output result files. It is recommended to use the model name, for example, setting it as "CN" will result in output files named "CN.h5ad". This is a required parameter.
+    nclust: Number of identified domains. This is a required parameter.
+    runNormalization: A boolean variable indicating whether data normalization should be performed before integration. This is an optional parameter, with the default set to True.
+    hvgs: The number of highly variable genes identified if data normalization is performed. This is an optional parameter, with the default set to 4000.
+    n_pcs: The number of principal components set when performing PCA dimensionality reduction on the data. This is an optional parameter, with the default set to 50.
+    seed: Random seed for model execution. This is an optional parameter, with the default set to 0.
+    '''
     ks = [10]
     X = 'X'
     Y = 'Y'
