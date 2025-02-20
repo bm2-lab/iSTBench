@@ -4,7 +4,7 @@
 nohup Rscript Benchmark/RunModel/Run_Banksy.R \
 -i Data/BaristaSeq/sample_all_data/Slices_combind_data.RDS \
 -o Data/BaristaSeq/IntergrationRe \
--s Banksy -c 7 -d RDS -k 18 -l 0.2 \
+-s Banksy -c 6 -d RDS -k 18 -l 0.2 \
 > Data/BaristaSeq/IntergrationRe/Banksy.output &
 ```  
 ## CellCharter
@@ -12,7 +12,7 @@ nohup Rscript Benchmark/RunModel/Run_Banksy.R \
 nohup python Benchmark/RunModel/Run_CellCharter.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample CellCharter --nclust 7 --hvgs 2000 --runNormalization True \
+--sample CellCharter --nclust 6 --hvgs 2000 --runNormalization True \
 --n_latent 15 --nhood_layers 2 \
 > Data/BaristaSeq/IntergrationRe/CellCharter.output &
 ```
@@ -21,7 +21,7 @@ nohup python Benchmark/RunModel/Run_CellCharter.py \
 nohup python Benchmark/RunModel/Run_CN.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample CN --nclust 7 \
+--sample CN --nclust 6 \
 > Data/BaristaSeq/IntergrationRe/CN.output &
 ```
 ## GraphST
@@ -29,7 +29,7 @@ nohup python Benchmark/RunModel/Run_CN.py \
 nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample GraphST --nclust 7 --device cuda \
+--sample GraphST --nclust 6 --device cuda \
 > Data/BaristaSeq/IntergrationRe/GraphST.output  &
 ```
 ## GraphST-PASTE
@@ -37,7 +37,7 @@ nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
 nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample GraphSTwithPASTE --nclust 7 --device cuda \
+--sample GraphSTwithPASTE --nclust 6 --device cuda \
 > Data/BaristaSeq/IntergrationRe/GraphSTwithPASTE.output  &
 ```
 ## MENDER
@@ -45,7 +45,7 @@ nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
 nohup python Benchmark/RunModel/Run_MENDER.py \
 --input_file Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample MENDER --nclust 7 --tech BaristaSeq \
+--sample MENDER --nclust 6 --tech BaristaSeq \
 > Data/BaristaSeq/IntergrationRe/MENDER.output &
 ```
 ## NicheCompass 
@@ -53,7 +53,7 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 nohup python Benchmark/RunModel/Run_NicheCompass.py \
 --input_file Data/BaristaSeq/sample_data \
 --output_file Data/BaristaSeq/IntergrationRe \
---sample NicheCompass --nclust 7 \
+--sample NicheCompass --nclust 6 \
 > Data/BaristaSeq/IntergrationRe/NicheCompass.output &
 ```
 ## Spado
@@ -61,6 +61,6 @@ nohup python Benchmark/RunModel/Run_NicheCompass.py \
 nohup /opt/R/4.3.2/lib/R/bin/Rscript Benchmark/RunModel/Run_Spado.R \
 -i Data/BaristaSeq/sample_all_data/Slices_combind_data.h5ad \
 -o Data/BaristaSeq/IntergrationRe \
--s Spado -v 2000 -c 7 -n TRUE \
+-s Spado -v 2000 -c 6 -n TRUE \
 > Data/BaristaSeq/IntergrationRe/Spado.output &    
 ```
