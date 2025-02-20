@@ -95,11 +95,11 @@ The specific meanings of the parameters can be referenced in the "Benchmark/Slic
 The code for spatial alignment using DR.A is as follows:
 ```python
 nohup python Improve/DR.A/DR.A.py \
---data_path ./Data/BaristaSeq/sample_data_rotate \
---integrated_path ./Data/BaristaSeq/IntergrationRe \
---output_path ./Improve/DR.A/Result \
+--data_path Data/BaristaSeq/sample_data_rotate \
+--integrated_path Data/BaristaSeq/IntergrationRe \
+--output_path Improve/DR.A/Result/BaristaSeq/ \
 --slices_file 'slices1,slices2,slices3' --slices '1,2,3' --model MENDER \
-> Improve/DR.A/MENDER.output &
+> Improve/DR.A/Result/MENDER.output &
 ```
 The "data_path", "integrated_path" and "output_path" should be set to the exact paths of the input and output files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/DR.A_parameters.md" file.
 ## Domain-Relationship-Aware Slice Representation Method (Dr.S)
