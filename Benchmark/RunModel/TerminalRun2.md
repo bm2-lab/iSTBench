@@ -61,7 +61,7 @@ nohup Rscript Benchmark/RunModel/Run_Banksy.R \
 ```python
 nohup Rscript Benchmark/RunModel/Run_Banksy.R \
 -i Data/TNBC/sample_all_data/Slices_combind_data.RDS \
--o Data/TNBC/IntergrationRe \
+-o Data/TNBC/SlicesEmbedding \
 -s Banksy -c 4 -d RDS -n FALSE \
 > Data/TNBC/SlicesEmbedding/Banksy/Banksy4.output &
 # You need to modify the parameter "c" to identify the different number of domains
@@ -224,7 +224,7 @@ nohup python Benchmark/RunModel/Run_CellCharter.py \
 ```python
 nohup python Benchmark/RunModel/Run_CellCharter.py \
 --input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
---output_file Data/TNBC/IntergrationRe \
+--output_file Data/TNBC/SlicesEmbedding \
 --sample CellCharter --nclust 4 --hvgs 2000 --runNormalization False \
 --n_latent 15 --nhood_layers 3 \
 > Data/TNBC/SlicesEmbedding/CellCharter/CellCharter4.output &
@@ -292,7 +292,7 @@ nohup python Benchmark/RunModel/Run_CN.py \
 ```python
 nohup python Benchmark/RunModel/Run_CN.py \
 --input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
---output_file Data/TNBC/IntergrationRe \
+--output_file Data/TNBC/SlicesEmbedding \
 --sample CN --nclust 4 \
 > Data/TNBC/SlicesEmbedding/CN/CN4.output &
 #  You need to modify the parameter "nclust" to identify the different number of domains
@@ -475,7 +475,7 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 ```python
 nohup python Benchmark/RunModel/Run_MENDER.py \
 --input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
---output_file Data/TNBC/IntergrationRe \
+--output_file Data/TNBC/SlicesEmbedding \
 --sample MENDER --nclust 4 --runNormalization False --tech MIBI \
 > Data/TNBC/SlicesEmbedding/MENDER/MENDER4.output &
 # You need to modify the parameter "nclust" to identify the different number of domains
@@ -542,7 +542,7 @@ nohup python Benchmark/RunModel/Run_NicheCompass.py \
 ```python
 nohup python Benchmark/RunModel/Run_NicheCompass.py \
 --input_file Data/TNBC/sample_data \
---output_file Data/TNBC/IntergrationRe \
+--output_file Data/TNBC/SlicesEmbedding \
 --sample NicheCompass --nclust 4 \
 > Data/TNBC/SlicesEmbedding/NicheCompass/NicheCompass4.output &
 # You need to modify the parameter "nclust" to identify the different number of domains
