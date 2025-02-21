@@ -109,6 +109,12 @@ nohup Rscript Improve/DR.S/DR.S.R \
 -f /NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench/Data/TNBC/SlicesEmbedding/MENDER \
 -c 3 -a abundance_matrix_normal.csv \
 > Improve/DR.S/MENDER.output &
+
+nohup Rscript Improve/DR.S/DR.S2.R \
+-f Data/TNBC/SlicesEmbedding/MENDER/18/MENDER.h5ad \
+-o Data/TNBC/SlicesEmbedding/MENDER/18 \
+-c 3 \
+> Improve/DR.S/MENDER.output &
 ```
 It is important to note that before using dr.s, the corresponding domain abundance data must first be obtained using the code from "3. Slice representation." The "f" should be set to the exact paths of the input files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/parameters.md" file.
 # Analysis
