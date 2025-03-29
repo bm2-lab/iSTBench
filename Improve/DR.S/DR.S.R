@@ -16,7 +16,7 @@ library(reticulate)
 library(getopt)
 library(MASS)
 # library(rlang)
-use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python")
+# use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python")
 
 #Domain abundance Function ----
 # This function calculates the abundance matrix for each slice.
