@@ -281,10 +281,10 @@ slices_calculation <- function(file, output, cluster_number, cluster_method, pre
   domain_embedding$slices_class <- slices_class
   colnames(domain_embedding) <- c(rep("domain_abundance", ncol(domain_abundance)), rep("domain_cor", ncol(domain_cor)), "slices", "slices_class")
   
-  write.table(domain_embedding, file = paste(output, paste(paste("DomainAbunCor", sd_filter, sep = "_"), "csv", sep = "."), sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
+  # write.table(domain_embedding, file = paste(output, paste(paste("DomainAbunCor", sd_filter, sep = "_"), "csv", sep = "."), sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
   
   colnames(distance_matrix_leiden) <- paste("S", colnames(distance_matrix_leiden), sep = "_")
-  write.table(distance_matrix_leiden, file = paste(output, paste(paste("DistanceMatrixLeiden", sd_filter, sep = "_"), "csv", sep = "."), sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
+  # write.table(distance_matrix_leiden, file = paste(output, paste(paste("DistanceMatrixLeiden", sd_filter, sep = "_"), "csv", sep = "."), sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
   
   write.table(predicted_class_leiden, file = paste(output, paste(paste("PredictedClass", sd_filter, sep = "_"), "csv", sep = "."), sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
   
