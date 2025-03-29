@@ -101,22 +101,18 @@ nohup python Improve/DR.A/DR.A.py \
 --slices_file 'slices1,slices2,slices3' --slices '1,2,3' --model MENDER \
 > Improve/DR.A/Result/MENDER.output &
 ```
-The "data_path", "integrated_path" and "output_path" should be set to the exact paths of the input and output files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/parameters.md" file.
+The "data_path", "integrated_path" and "output_path" should be set to the exact paths of the input and output files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/DR.A/parameters.md" file.
 ## Domain-Relationship-Aware Slice Representation Method (Dr.S)
 The code for slice representation using DR.S is as follows:
 ```python
 nohup Rscript Improve/DR.S/DR.S.R \
--f /NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench/Data/TNBC/SlicesEmbedding/MENDER \
--c 3 -a abundance_matrix_normal.csv \
-> Improve/DR.S/MENDER.output &
-
-nohup Rscript Improve/DR.S/DR.S2.R \
--f Data/TNBC/SlicesEmbedding/MENDER/18/MENDER.h5ad \
--o Data/TNBC/SlicesEmbedding/MENDER/18 \
+-f Data/TNBC/SlicesEmbedding/MENDER/6/MENDER.h5ad \
+-o Data/TNBC/SlicesEmbedding/MENDER/6 \
 -c 3 \
 > Improve/DR.S/MENDER.output &
 ```
-It is important to note that before using dr.s, the corresponding domain abundance data must first be obtained using the code from "3. Slice representation." The "f" should be set to the exact paths of the input files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/parameters.md" file.
+The "f" is the file path that stores the result of integration with the data, and in the obs of this data there needs to be a column "predicted_domain" to store domian information for each cell. “o” should be set to the exact paths of the output files, depending on the actual setup. "c" is the number of clusters to generate during the clustering step. The specific meanings of the parameters can be found in the "Improve/DR.S/parameters.md" file.
+
 # Analysis
 The relevant code for analyzing and visualizing the results is stored in the "Analysis" folder.
 # Citation
