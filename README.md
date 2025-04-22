@@ -12,6 +12,8 @@ We developed a comprehensive benchmarking pipeline to evaluate state-of-the-art 
 | [NicheCompass](https://github.com/Lotfollahi-lab/nichecompass)                 | [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.02.21.581428v1)      |Large-scale characterization of cell niches in spatial atlases using bio-inspired graph learning            | 2024 |
 | [SpaDo](https://github.com/bm2-lab/SpaDo)                                      | [Geonome Biology](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03213-x#:~:text=To%20this%20end%2C%20we%20propose%20SpaDo%20%28multi-slice%20spatial,transcriptome%20analysis%20at%20both%20single-cell%20and%20spot%20resolution.)      |Multi‐slice spatial transcriptome domain analysis with SpaDo           | 2024 |
 
+All benchmark data and corresponding results have been uploaded to Zenodo and can be accessed [here](https://zenodo.org/records/14906156). Please download all files into the ./Data directory.
+
 # Benchmark framework
 To rigorously assess the performance of multi-slice integration methods, we propose a comprehensive evaluation framework covering five key areas: multi-slice integration, spatial clustering, spatial alignment, slice representation, and method scalability.
 
