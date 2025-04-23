@@ -160,7 +160,7 @@ slices_calculation <- function(file, model, cluster_number,cluster_method,predic
   }
   
   # Step 3: Compile and save metrics
-  metric <- metric[-1,]
+  metric <- metric[-1,,drop = FALSE]
   colnames(metric) <- c("domain_count", "ari", "nmi", "parameter_domain")
   metric <- as.data.frame(metric)
   metric$domain_count <- as.numeric(metric$domain_count)
