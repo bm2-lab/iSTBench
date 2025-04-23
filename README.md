@@ -85,6 +85,12 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 --sample MENDER --nclust 6 --runNormalization False --tech MIBI \
 > Data/TNBC/SlicesEmbedding/MENDER/MENDER6.output &
 
+nohup python Benchmark/RunModel/Run_MENDER.py \
+--input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
+--output_file Data/TNBC/SlicesEmbedding/MENDER/14 \
+--sample MENDER --nclust 14 --runNormalization False --tech MIBI \
+> Data/TNBC/SlicesEmbedding/MENDER/MENDER14.output &
+
 # Slices are represented and clustered based on domain abundance.
 nohup Rscript Benchmark/SliceRepresentation/SliceRepresentation.R \
 -f Data/TNBC/SlicesEmbedding/MENDER \
@@ -108,8 +114,8 @@ The "data_path", "integrated_path" and "output_path" should be set to the exact 
 The code for slice representation using DR.S is as follows:
 ```python
 nohup Rscript Improve/DR.S/DR.S.R \
--f Data/TNBC/SlicesEmbedding/MENDER/6/MENDER.h5ad \
--o Data/TNBC/SlicesEmbedding/MENDER/6 \
+-f Data/TNBC/SlicesEmbedding/MENDER/14/MENDER.h5ad \
+-o Data/TNBC/SlicesEmbedding/MENDER/14 \
 -c 3 \
 > Improve/DR.S/MENDER.output &
 ```
