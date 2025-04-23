@@ -15,8 +15,6 @@ library(igraph)
 library(reticulate)
 library(getopt)
 
-use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python")
-
 #find_optimal_resolution Function ----
 # Function to find optimal resolution for clustering based on the Leiden algorithm
 # This function aims to adjust the resolution parameter of the Leiden algorithm to achieve a target number of clusters.
