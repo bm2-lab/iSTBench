@@ -166,6 +166,11 @@ slices_calculation <- function(file, model, cluster_number,cluster_method,predic
   metric$domain_count <- as.numeric(metric$domain_count)
   metric$ari <- as.numeric(metric$ari)
   metric$nmi <- as.numeric(metric$nmi)
+
+  if (!dir.exists(file.path(file, "Metric", cluster_method))) {
+    dir.create(file.path(file, "Metric", cluster_method), recursive = TRUE)
+  }
+  
   write.table(metric, file = paste(paste(file, "Metric", cluster_method,sep = "/"), "model_metric.csv", sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
   
   # Step 4: Generate and save combined ARI and NMI plots
