@@ -49,7 +49,7 @@ nohup Rscript Benchmark/RunModel/Run_Banksy.R \
 -s Banksy -c 4 -d RDS -h 166 \
 > Data/STARMap/IntergrationRe/Banksy.output &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup Rscript Benchmark/RunModel/Run_Banksy.R \
 -i Data/Mouse/sample_all_data/Slices_combind_data.RDS \
@@ -211,7 +211,7 @@ nohup python Benchmark/RunModel/Run_CellCharter.py \
 --n_latent 5 --nhood_layers 4 \
 > Data/STARMap/IntergrationRe/CellCharter.output &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup python Benchmark/RunModel/Run_CellCharter.py \
 --input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
@@ -280,7 +280,7 @@ nohup python Benchmark/RunModel/Run_CN.py \
 --sample CN --nclust 4 --runNormalization True --hvgs 166 \
 > Data/STARMap/IntergrationRe/CN.output &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup python Benchmark/RunModel/Run_CN.py \
 --input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
@@ -347,7 +347,7 @@ nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
 --sample GraphST --nclust 4 --hvgs 166 --device cuda \
 > Data/STARMap/IntergrationRe/GraphST.output  &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup python Benchmark/RunModel/GraphST/Run_GraphST.py \
 --input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
@@ -405,7 +405,7 @@ nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
 --sample GraphSTwithPASTE --nclust 4 --hvgs 166 --device cuda \
 > Data/STARMap/IntergrationRe/GraphST.output  &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup python Benchmark/RunModel/GraphST/Run_GraphST-PASTE.py \
 --input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
@@ -463,7 +463,7 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 --sample MENDER --nclust 4 --hvgs 166 --tech STARMap \
 > Data/STARMap/IntergrationRe/MENDER.output &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup python Benchmark/RunModel/Run_MENDER.py \
 --input_file Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
@@ -530,7 +530,7 @@ nohup python Benchmark/RunModel/Run_NicheCompass.py \
 --sample NicheCompass --nclust 4 --species mouse \
 > Data/STARMap/IntergrationRe/NicheCompass.output &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup python Benchmark/RunModel/Run_NicheCompass.py \
 --input_file Data/Mouse/sample_data \
@@ -545,6 +545,73 @@ nohup python Benchmark/RunModel/Run_NicheCompass.py \
 --output_file Data/TNBC/SlicesEmbedding/NicheCompass/4 \
 --sample NicheCompass --nclust 4 \
 > Data/TNBC/SlicesEmbedding/NicheCompass/NicheCompass4.output &
+# You need to modify the parameter "nclust" to identify the different number of domains
+```
+## PRECAST
+### DLPFC S1
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/DLPFC_sample1/sample_data  \
+-o Data/DLPFC_sample1/IntergrationRe \
+-s PRECAST -c 7 -h 2000 -n TRUE -t Visuim -p Human \
+> Data/DLPFC_sample1/IntergrationRe/PRECAST.output &    
+```
+### DLPFC S2
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/DLPFC_sample2/sample_data  \
+-o Data/DLPFC_sample2/IntergrationRe \
+-s PRECAST -c 5 -h 2000 -n TRUE -t Visuim -p Human \
+> Data/DLPFC_sample2/IntergrationRe/PRECAST.output &    
+```
+### DLPFC S3
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/DLPFC_sample3/sample_data  \
+-o Data/DLPFC_sample3/IntergrationRe \
+-s PRECAST -c 7 -h 2000 -n TRUE -t Visuim -p Human \
+> Data/DLPFC_sample3/IntergrationRe/PRECAST.output &    
+```
+### MERFISH Preoptic
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/MERFISH/sample_data  \
+-o Data/MERFISH/IntergrationRe \
+-s PRECAST -c 8 -n FALSE -t Other_SRT  -p Mouse \
+> Data/MERFISH/IntergrationRe/PRECAST.output &    
+```
+### MERFISH Brain S2-S12
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/MERFISH_Brain_S2/sample_data  \
+-o Data/MERFISH_Brain_S2/IntergrationRe \
+-s PRECAST -c 8 -h 374 -n TRUE -t Other_SRT  -p Mouse \
+> Data/MERFISH_Brain_S2/IntergrationRe/PRECAST.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4... 
+```
+### STARMap
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/STARMap/sample_data  \
+-o Data/STARMap/IntergrationRe \
+-s PRECAST -c 4 -h 166 -n TRUE -t Other_SRT  -p Mouse \
+> Data/STARMap/IntergrationRe/PRECAST.output &    
+```
+### Large-scale Data
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/Mouse/sample_data  \
+-o Data/Mouse/IntergrationRe \
+-s PRECAST -c 6 -h 254 -n FALSE -t Other_SRT  -p Mouse \
+> Data/Mouse/IntergrationRe/PRECAST.output &    
+```
+### TNBC
+```python
+nohup Rscript Benchmark/RunModel/Run_PRECAST.R \
+-i Data/TNBC/sample_data  \
+-o Data/TNBC/SlicesEmbedding/PRECAST/4 \
+-s PRECAST -c 4 -h 36 -n FALSE -t Other_SRT  -p Human \
+> Data/TNBC/SlicesEmbedding/PRECAST/PRECAST4.output &
 # You need to modify the parameter "nclust" to identify the different number of domains
 ```
 ## Spado
@@ -597,7 +664,7 @@ nohup Rscript Benchmark/RunModel/Run_Spado.R \
 -s Spado -v 166 -c 4 -n TRUE \
 > Data/STARMap/IntergrationRe/Spado.output &
 ```
-### Large-scale Dataset
+### Large-scale Data
 ```python
 nohup Rscript Benchmark/RunModel/Run_Spado.R \
 -i Data/Mouse/sample_all_data/Slices_combind_data.h5ad \
@@ -605,4 +672,261 @@ nohup Rscript Benchmark/RunModel/Run_Spado.R \
 -s Spado -c 7 -n FALSE \
 > Data/Mouse/IntergrationRe/Spado.output &
 ``` 
+## SPIRAL
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/Run_SPIRAL.py \
+--input_file Data/DLPFC_sample1/sample_data \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--model_path  Data/DLPFC_sample1/IntergrationRe/SPIRAL_intermediate_result \
+--sample SPIRAL --hvgs 1000 --runNormalization True --data DLPFC_sample1 --nclust 7 \
+> Data/DLPFC_sample1/IntergrationRe/SPIRAL.output & 
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/Run_SPIRAL.py \
+--input_file Data/DLPFC_sample2/sample_data \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--model_path  Data/DLPFC_sample2/IntergrationRe/SPIRAL_intermediate_result \
+--sample SPIRAL --hvgs 1000 --runNormalization True --data DLPFC_sample2 --nclust 5 \
+> Data/DLPFC_sample2/IntergrationRe/SPIRAL.output & 
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/Run_SPIRAL.py \
+--input_file Data/DLPFC_sample3/sample_data \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--model_path  Data/DLPFC_sample3/IntergrationRe/SPIRAL_intermediate_result \
+--sample SPIRAL --hvgs 1000 --runNormalization True --data DLPFC_sample3 --nclust 7 \
+> Data/DLPFC_sample3/IntergrationRe/SPIRAL.output & 
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/Run_SPIRAL.py \
+--input_file Data/MERFISH/sample_data \
+--output_file Data/MERFISH/IntergrationRe \
+--model_path  Data/MERFISH/IntergrationRe/SPIRAL_intermediate_result \
+--sample SPIRAL --hvgs 155 --runNormalization False --data MERFISH --nclust 8 \
+> Data/MERFISH/IntergrationRe/SPIRAL.output & 
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/Run_SPIRAL.py \
+--input_file Data/MERFISH_Brain_S2/sample_data \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--model_path  Data/MERFISH_Brain_S2/IntergrationRe/SPIRAL_intermediate_result \
+--sample SPIRAL --hvgs 374 --runNormalization True --data MERFISH_Brain_S2 --nclust 8 \
+> Data/MERFISH_Brain_S2/IntergrationRe/SPIRAL.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/Run_SPIRAL.py \
+--input_file Data/STARMap/sample_data \
+--output_file Data/STARMap/IntergrationRe \
+--model_path  Data/STARMap/IntergrationRe/SPIRAL_intermediate_result \
+--sample SPIRAL --hvgs 166 --runNormalization True --data STARMap --nclust 4 \
+> Data/STARMap/IntergrationRe/SPIRAL.output &
+```
+## STAIG
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/Run_STAIG.py \
+--input_file Data/DLPFC_sample1/sample_data \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample STAIG --runNormalization True --nclust 7 \
+--nPCA 50 --num_layers 1 --k_neighbor 5 --tau 10 --num_epochs 400 --device cpu \
+> Data/DLPFC_sample1/IntergrationRe/STAIG.output &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/Run_STAIG.py \
+--input_file Data/DLPFC_sample2/sample_data \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample STAIG --runNormalization True --nclust 5 \
+--nPCA 50 --num_layers 1 --k_neighbor 5 --tau 10 --num_epochs 400 --device cpu \
+> Data/DLPFC_sample2/IntergrationRe/STAIG.output &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/Run_STAIG.py \
+--input_file Data/DLPFC_sample3/sample_data \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample STAIG --runNormalization True --nclust 7 \
+--nPCA 50 --num_layers 1 --k_neighbor 5 --tau 10 --num_epochs 400 --device cpu \
+> Data/DLPFC_sample3/IntergrationRe/STAIG.output &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/Run_STAIG.py \
+--input_file Data/MERFISH/sample_data \
+--output_file Data/MERFISH/IntergrationRe \
+--sample STAIG --runNormalization False --nclust 8 \
+--nPCA 50 --num_layers 1 --k_neighbor 5 --tau 10 --num_epochs 200 --device cpu \
+> Data/MERFISH/IntergrationRe/STAIG.output &
+```
+### MERFISH Brain S2-S12
+```python
+nohup python Benchmark/RunModel/Run_STAIG.py \
+--input_file Data/MERFISH_Brain_S2/sample_data \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample STAIG --runNormalization True --nclust 8 \
+--nPCA 50 --num_layers 1 --k_neighbor 5 --tau 10 --num_epochs 200 --device cpu \
+> Data/MERFISH_Brain_S2/IntergrationRe/STAIG.output &
+# You just need to change the path, like MERFISH_Brain_S3, MERFISH_Brain_S4...
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/Run_STAIG.py \
+--input_file Data/STARMap/sample_data \
+--output_file Data/STARMap/IntergrationRe \
+--sample STAIG --runNormalization True --nclust 4 \
+--nPCA 50 --num_layers 2 --k_neighbor 5 --tau 10 --num_epochs 400 \
+> Data/STARMap/IntergrationRe/STAIG.output &
+```
+## STAligner
+### DLPFC S1
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/DLPFC_sample1/sample_data \
+--output_file Data/DLPFC_sample1/IntergrationRe \
+--sample STAligner --batches "slices2,slices3,slices1,slices4" \
+--runNormalization True --nclust 7 --hvgs 5000 --r 150 \
+> Data/DLPFC_sample1/IntergrationRe/STAligner.output &
+```
+### DLPFC S2
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/DLPFC_sample2/sample_data \
+--output_file Data/DLPFC_sample2/IntergrationRe \
+--sample STAligner --batches "slices2,slices1,slices3,slices4" \
+--runNormalization True --nclust 5 --hvgs 5000 --r 150 \
+> Data/DLPFC_sample2/IntergrationRe/STAligner.output &
+```
+### DLPFC S3
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/DLPFC_sample3/sample_data \
+--output_file Data/DLPFC_sample3/IntergrationRe \
+--sample STAligner --batches "slices2,slices4,slices1,slices3" \
+--runNormalization True --nclust 7 --hvgs 5000 --r 150 \
+> Data/DLPFC_sample3/IntergrationRe/STAligner.output &
+```
+### MERFISH Preoptic
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH/sample_data \
+--output_file Data/MERFISH/IntergrationRe \
+--sample STAligner --batches "slices1,slices4,slices2,slices5,slices3" \
+--runNormalization False --nclust 8 --r 50 \
+> Data/MERFISH/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S2
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S2/sample_data \
+--output_file Data/MERFISH_Brain_S2/IntergrationRe \
+--sample STAligner --batches "slices2,slices1" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S2/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S3
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S3/sample_data \
+--output_file Data/MERFISH_Brain_S3/IntergrationRe \
+--sample STAligner --batches "slices2,slices1" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S3/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S4
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S4/sample_data \
+--output_file Data/MERFISH_Brain_S4/IntergrationRe \
+--sample STAligner --batches "slices3,slices1,slices2" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S4/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S5
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S5/sample_data \
+--output_file Data/MERFISH_Brain_S5/IntergrationRe \
+--sample STAligner --batches "slices1,slices3,slices2" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S5/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S6
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S6/sample_data \
+--output_file Data/MERFISH_Brain_S6/IntergrationRe \
+--sample STAligner --batches "slices1,slices2,slices3" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S6/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S7
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S7/sample_data \
+--output_file Data/MERFISH_Brain_S7/IntergrationRe \
+--sample STAligner --batches "slices3,slices2,slices1" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S7/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S8
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S8/sample_data \
+--output_file Data/MERFISH_Brain_S8/IntergrationRe \
+--sample STAligner --batches "slices1,slices2,slices3" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S8/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S9
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S9/sample_data \
+--output_file Data/MERFISH_Brain_S9/IntergrationRe \
+--sample STAligner --batches "slices3,slices2,slices1" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S9/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S10
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S10/sample_data \
+--output_file Data/MERFISH_Brain_S10/IntergrationRe \
+--sample STAligner --batches "slices1,slices2,slices3" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S10/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S11
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S11/sample_data \
+--output_file Data/MERFISH_Brain_S11/IntergrationRe \
+--sample STAligner --batches "slices1,slices2,slices3" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S11/IntergrationRe/STAligner.output &
+```
+### MERFISH Brain S12
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/MERFISH_Brain_S12/sample_data \
+--output_file Data/MERFISH_Brain_S12/IntergrationRe \
+--sample STAligner --batches "slices2,slices1" \
+--runNormalization True --nclust 8 --hvgs 374 --r 50 \
+> Data/MERFISH_Brain_S12/IntergrationRe/STAligner.output &
+```
+### STARMap
+```python
+nohup python Benchmark/RunModel/Run_STAligner.py \
+--input_file Data/STARMap/sample_data \
+--output_file Data/STARMap/IntergrationRe \
+--sample STAligner --batches "slices1,slices3,slices2" \
+--runNormalization True --nclust 4 --hvgs 166 --r 50 \
+> Data/STARMap/IntergrationRe/STAligner.output &
+```
 
