@@ -161,7 +161,7 @@ colnames(heatmapData)[1] <- "id"
 
 heatmapData[,2:ncol(heatmapData)] <- apply(heatmapData[,2:ncol(heatmapData)], 2, function(x){
   x[which(is.na(x))] <- 0
-  rank(x)
+  rank_custom_jump(x)
 })
 
 datasets <- c("DLPFC", "MERFISH", "BaristaSeq", "STARMap")
