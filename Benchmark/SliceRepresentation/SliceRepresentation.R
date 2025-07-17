@@ -81,15 +81,19 @@ slices_clustering <- function(metadata, predicted_domain, dist_method, cluster_m
     distance_matrix <- dist(abundance_matrix, method = dist_method)
     hclust_result <- hclust(distance_matrix, method = "complete")
     clusters <- as.data.frame(cutree(hclust_result, k = cluster_number))
-  }else{
+  }else if(cluster_method == "leiden"){
     similarity_matrix <- cor(t(abundance_matrix))
     graph <- graph_from_adjacency_matrix(similarity_matrix, mode = "undirected", weighted = TRUE, diag = FALSE)
     optimal_resolution <- find_optimal_resolution(graph, cluster_number)
     
     leiden_result <- leiden.community(graph, resolution = optimal_resolution)
     clusters <- as.data.frame(leiden_result[["membership"]])
+  }else if(cluster_method == "kmeans"){
+    abundance_matrix_mat <- as.matrix(abundance_matrix)
+    kmeans_result <- kmeans(abundance_matrix_mat, centers = cluster_number)
+    clusters <- as.data.frame(kmeans_result$cluster  )
   }
-  
+    
   # Step 4: Add additional metadata and calculate ARI and NMI
   colnames(clusters) <- "predicted_class"
   clusters$slices_class <- metadata[match(rownames(clusters), metadata$slices) ,match(slices_class,colnames(metadata))]
@@ -103,77 +107,55 @@ slices_clustering <- function(metadata, predicted_domain, dist_method, cluster_m
   abundance_matrix_re$slices_class <-  clusters[match(rownames(abundance_matrix_re), rownames(clusters)),]$slices_class
   abundance_matrix_re$slices <- rownames(abundance_matrix_re)
   
-  # Step 6: Plot PCA and return results
-  set.seed(1234)
-  pca_result <- prcomp(abundance_matrix, scale. = TRUE)
-  pca_df <- as.data.frame(pca_result$x)
-  pca_df$slices <- rownames(pca_df)
-  
-  pca_df <- pca_df %>%
-    left_join(clusters, by = "slices")
-  
-  pca_df$slices_class <- as.character(pca_df$slices_class)
-  
-  # Create plot title including ARI and NMI metrics
-  plot_title <- paste("Domain count:", length(unique(metadata$predicted_domain)), "; ARI:", round(ari, 5), "; NMI:", round(nmi, 5), sep = "")
-  
-  # Plot PCA with clusters colored by slices_class
-  p <- ggplot(pca_df, aes(x = PC1, y = PC2, color = slices_class)) +
-    geom_point(size = 3) +
-    labs(title = plot_title, x = "PC1", y = "PC2") +
-    theme_minimal() +
-    theme(plot.title = element_text(size = 6),
-          legend.key.size = unit(0.1, 'cm'),
-          legend.text = element_text(size = 6),
-          legend.title = element_text(size = 6))
-  
   # Return results: ARI, NMI, plot, and abundance matrix
-  return(list(ari = ari, nmi = nmi, plot = p, abundance = abundance_matrix_re))
+  return(list(ari = ari, nmi = nmi, abundance = abundance_matrix_re))
 }
 
 #slices_calculation Function ----
 # Function to perform clustering and calculate metrics across multiple datasets
 # This function processes each dataset in a given directory, performs clustering, and stores results such as ARI, NMI, and PCA plots.
 # It also generates and saves summary plots for ARI and NMI across all datasets.
-slices_calculation <- function(file, model, cluster_number,cluster_method,predicted_domain = "predicted_domain", dist_method = "euclidean", slices_class = "slices_class"){
-  
-  # Step 1: Read all files from the specified directory
-  fl <- list.files(file)
-  fl <- fl[-grep("Metric", fl)]  # Exclude files related to metrics
+slices_calculation <- function(original_file, file, model, cluster_number,cluster_method,predicted_domain = "predicted_domain", dist_method = "euclidean", slices_class = "slices_class"){
+  fl = c("4","5","6","7","8","9","10")
   metric <- matrix(,,4)
   plot_list <- list()
   
-  # Step 2: Process each dataset
+  data_original = read_h5ad(original_file)
+  metadata_original = data_original$obs
+  
   for(f in fl){
     ex <- paste(paste(file,f,sep = "/"), paste(model,"h5ad",sep = "."), sep = "/")  
     data <- read_h5ad(ex)
     metadata<-data$obs
     
-    # Perform clustering and get results
+    inter_barcode <- intersect(metadata_original$barcode, metadata$barcode)
+    metadata <- metadata[match(inter_barcode, metadata$barcode),]
+    metadata$slices_class <- metadata_original[match(inter_barcode, metadata_original$barcode),]$slices_class
+    
     slices_clustering_re <- slices_clustering(metadata,predicted_domain, dist_method, cluster_method, cluster_number, slices_class)
     metric <- rbind(metric, c(length(unique(metadata$predicted_domain)), slices_clustering_re$ari, slices_clustering_re$nmi, f)) 
     plot_list[[f]] <- slices_clustering_re$plot
     
-    # Save abundance matrix
-    abundance_matrix <- slices_clustering_re$abundance
-    write.table(abundance_matrix, file = paste(file, f, "abundance_matrix_normal.csv", sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
+    if(cluster_method == "hclust"){
+      abundance_matrix <- slices_clustering_re$abundance
+      write.table(abundance_matrix, file = paste(file, f, "abundance_matrix_normal.csv", sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
+    }
   }
   
-  # Step 3: Compile and save metrics
-  metric <- metric[-1,,drop = FALSE]
+  metric <- metric[-1,]
   colnames(metric) <- c("domain_count", "ari", "nmi", "parameter_domain")
   metric <- as.data.frame(metric)
   metric$domain_count <- as.numeric(metric$domain_count)
   metric$ari <- as.numeric(metric$ari)
   metric$nmi <- as.numeric(metric$nmi)
 
-  if (!dir.exists(file.path(file, "Metric", cluster_method))) {
-    dir.create(file.path(file, "Metric", cluster_method), recursive = TRUE)
+  output_dir <- file.path(file, "Metric", cluster_method)
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir, recursive = TRUE)
   }
   
-  write.table(metric, file = paste(paste(file, "Metric", cluster_method,sep = "/"), "model_metric.csv", sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
+  write.table(metric, file = paste(output_dir, "model_metric.csv", sep = "/"), col.names = T, row.names = F, sep = ",", quote = F)
   
-  # Step 4: Generate and save combined ARI and NMI plots
   custom_theme <- theme(
     axis.text.x = element_text(size = 4, angle = 30, hjust = 1),
     axis.text.y = element_text(size = 4),
@@ -201,50 +183,27 @@ slices_calculation <- function(file, model, cluster_number,cluster_method,predic
     theme_minimal()+
     custom_theme
   
-  # Save the combined ARI and NMI plots
   combined_plot <- plot_ari / plot_nmi
-  ggsave(paste(paste(file, "Metric",cluster_method, sep = "/"), "metric.pdf", sep = "/"), combined_plot,height = 8,width = 6, units = "cm")
+  ggsave(paste(output_dir, "metric.pdf", sep = "/"), combined_plot,height = 8,width = 6, units = "cm")
   
-  # Step 5: Combine and save all slice plots
   domain_plot <- plot_list[[1]]
   for(d in 2:length(plot_list)){
     domain_plot<- domain_plot + plot_list[[d]]
   }
-  ggsave(paste(paste(file, "Metric",cluster_method, sep = "/"), "slices_plot.pdf", sep = "/"), domain_plot,height = 40,width = 50, units = "cm")
+  ggsave(paste(output_dir, "slices_plot.pdf", sep = "/"), domain_plot,height = 40,width = 50, units = "cm")
+  
 }
 
 
+args <- commandArgs(trailingOnly = TRUE)
+original_file <- args[1]
+file <- args[2]
+model <- args[3]
+cluster_number <- as.numeric(args[4])
+cluster_method <- ifelse(length(args) >= 4, args[5], "leiden")
+predicted_domain <- ifelse(length(args) >= 5, args[6], "predicted_domain")
+dist_method <- ifelse(length(args) >= 6, args[7], "euclidean")
+slices_class <- ifelse(length(args) >= 7, args[8], "slices_class")
 
-# Parse command-line arguments using getopt
-opt = matrix(c("file", "f", 1, "character", "Input file path",
-               "model", "m", 1, "character", "The model used for integrating",
-               "cluster_number", "n", 1, "numeric", "Number of sample classes",
-               "cluster_method", "M", 2, "character", "Cluster method, default is hclust",
-               "predicted_domain", "p", 2, "character", "The name of metadata that stores domains",
-               "dist_method", "d", 2, "character", "The method used for calculating distance between slices, default is euclidean",
-               "slices_class", "s", 2, "character", "The name of metadata that stores slice classes"),
-             byrow = TRUE, ncol = 5)
-
-args = getopt(opt)
-
-# Set default values for unspecified arguments
-if (is.null(args$cluster_method)) {
-  args$cluster_method = "hclust"
-}
-
-if (is.null(args$predicted_domain)) {
-  args$predicted_domain = "predicted_domain"
-}
-
-if (is.null(args$dist_method)) {
-  args$dist_method = "euclidean"
-}
-
-if (is.null(args$slices_class)) {
-  args$slices_class = "slices_class"
-}
-
-# Run the slices_calculation function with parsed arguments
-slices_calculation(args$file, args$model, args$cluster_number, args$cluster_method, args$predicted_domain, args$dist_method, args$slices_class)
-
+slices_calculation(original_file, file, model, cluster_number,cluster_method, predicted_domain, dist_method, slices_class)
 
