@@ -15,6 +15,6 @@ nohup Rscript Analysis/Spatial_alignment/code/2.1Alignment_metric.R \
 ## 2.2Analysis_each_data.R
 The script generates spatial alignment result plots for each dataset based on different methods. It includes both 2D and 3D illustrations, as well as result plots for the corresponding metrics. The example code demonstrates how to plot results for the BaristaSeq dataset. The script needs to be run from the command line.
 ## 2.3Analyze_all_alignment.R
-The script reads the alignment results for each dataset and generates an overall result plot, corresponding to Extended Fig. 4. The alignment results for different datasets are stored in "Analysis/Spatial_alignment/result/integration_re.csv" and "Analysis/Spatial_alignment/result/integration_sd.csv". The script needs to be run from the command line.
+The script reads the alignment results for each dataset and generates an overall result plot, corresponding to Fig. 4. The alignment results for different datasets are stored in "Analysis/Spatial_alignment/result/integration_re.csv" and "Analysis/Spatial_alignment/result/integration_sd.csv". The script needs to be run from the command line.
 
 
