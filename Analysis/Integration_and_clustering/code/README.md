@@ -31,12 +31,12 @@ This script performs an integrated analysis of the performance of all methods ac
 
 1. **Read data**: This section reads the performance data of various models on multi-slice integration across all datasets. We provide sample results stored in "Analysis/Integration_and_clustering/result/integration_re_all.csv". You can also run the results for different methods on different datasets, read the corresponding results, and proceed with further analysis and visualization.
 
-2. **Integration result plotting**: This part generates performance plots for integration for each dataset and visualizes the corresponding results as shown in Extended Fig. 2.
+2. **Integration result plotting**: This part generates performance plots for integration for each dataset and visualizes the corresponding results as shown in Fig. 2.
 
-3. **Integration funcky heatmap**: This section plots heatmaps of integration performance results for different methods across all datasets, corresponding to the results in Extended Fig. 2. The plots shown in the text are layout-optimized using Illustrator.
+3. **Integration funcky heatmap**: This section plots heatmaps of integration performance results for different methods across all datasets, corresponding to the results in Fig. 2. The plots shown in the text are layout-optimized using Illustrator.
 
-4. **Clustering result plotting**: This part generates plots for domain identification performance, corresponding to Extended Fig. 3.
+4. **Clustering result plotting**: This part generates plots for domain identification performance, corresponding to Fig. 3.
 
-5. **Clustering funcky heatmap**: This section plots heatmaps of domain identification performance for different methods across all datasets, corresponding to the results shown in Extended Fig. 3. The plots in the text are layout-optimized using Illustrator.
+5. **Clustering funcky heatmap**: This section plots heatmaps of domain identification performance for different methods across all datasets, corresponding to the results shown in Fig. 3. The plots in the text are layout-optimized using Illustrator.
 
 6. **Time plot**: This part plots the results for runtime and memory usage for different methods.
