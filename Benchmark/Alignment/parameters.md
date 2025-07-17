@@ -1,9 +1,24 @@
-# Rotate_spatial.py
+# Run_PASTE.py
 ```python
 input_file: Each slice needs to be saved separately to an h5ad file, and the path represents the location where these slices are stored. Refer to the example data for the specific format. This is a required parameter.
-output_file: Path to the directory where the output results will be saved. This is a required parameter.
+output_file:  Path to the directory where the output results will be saved. This is a required parameter.
 batches: The name of the file corresponding to each slice. Different slices are separated by "," and need to be arranged in adjacent order. For example: "slices1,slices2,slices3". This is a required parameter.
-angles: The angles by which each slice needs to be rotated sequentially, with the length matching the number of slices. Different angles are separated by spaces, for example, 40 20 0.
+step: Hyperparameter for the STAligner model. This is a required parameter.
+```
+# Run_STalign.py
+```python
+input_file: Each slice needs to be saved separately to an h5ad file, and the path represents the location where these slices are stored. Refer to the example data for the specific format. This is a required parameter.
+output_file:  Path to the directory where the output results will be saved. This is a required parameter.
+batches: The name of the file corresponding to each slice. Different slices are separated by "," and need to be arranged in adjacent order. For example: "slices1,slices2,slices3". This is a required parameter.
+step: Hyperparameter for the STAligner model. This is a required parameter.
+```
+# Run_SPACEL.py
+```python
+input_file: Each slice needs to be saved separately to an h5ad file, and the path represents the location where these slices are stored. Refer to the example data for the specific format. This is a required parameter.
+input_data: Path to save the integration data. This is a required parameter.
+output_file:  Path to the directory where the output results will be saved. This is a required parameter.
+batches: The name of the file corresponding to each slice. Different slices are separated by "," and need to be arranged in adjacent order. For example: "slices1,slices2,slices3". This is a required parameter.
+step: Hyperparameter for the STAligner model. This is a required parameter.
 ```
 # Run_STAligner.py
 ```python
