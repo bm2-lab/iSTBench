@@ -12,14 +12,15 @@ setwd("iSTBench")
 # The consolidated results from all datasets are read, and the results are merged into a final file for visualization. 
 # The related result files, intergration_re.csv and intergration_sd.csv, can be directly used in subsequent analyses 
 # without needing to repeat this step.
-datasets <- c("DLPFC_sample3", "MERFISH", "MERFISH_Brain_S3","BaristaSeq", "STARMap")
-models <- c("Banksy", "CellCharter", "CN", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "Spado", "unCorrect")
+datasets <- c("DLPFC_sample1", "DLPFC_sample2", "DLPFC_sample3", "MERFISH", "MERFISH_Brain_S3","BaristaSeq", "STARMap")
+models <- c("PASTE", "STalign", 
+            "Banksy", "CellCharter", "CN", "GraphST", "MENDER", "NicheCompass", "PRECAST", "Spado", "SPIRAL", "STAIG", "STAligner",
+            "SPACEL_Banksy", "SPACEL_CellCharter", "SPACEL_CN", "SPACEL_GraphST", "SPACEL_MENDER", "SPACEL_NicheCompass",
+            "SPACEL_PRECAST", "SPACEL_Spado", "SPACEL_SPIRAL", "SPACEL_STAIG", "SPACEL_STAligner")
 
 intergration_re <- data.frame()
 for(d in datasets){
   data_re <- matrix(,length(models),2)
-
-  # Read accuracy and ratio metrics from CSV files for each dataset
   path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
   path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
   
@@ -109,45 +110,24 @@ write.table(intergration_sd, "Analysis/Spatial_alignment/result/alignment_sd.csv
 #intergration_sd <- read.csv("Analysis/Spatial_alignment/result/alignment_sd.csv")
 
 
-### 2. Point with Error Bar ----
-# This section generates scatter plots with error bars for each dataset. 
-# The plot shows the relationship between accuracy and ratio, 
-# with error bars representing the standard deviation for each model and dataset.
-
-color <- c("Banksy" = "#509C3D", "CellCharter" = "#C33931", "CN" = "#58BACC", "GraphST" = "#3A73AE", "GraphST-PASTE" = "#EE8435", "MENDER" = "#8D68B8", "NicheCompass" ="#BABD45", "Spado" = "#D57BBE" )
-datasets <- c("DLPFC_sample3", "MERFISH", "MERFISH_Brain_S3", "BaristaSeq", "STARMap")
-plotlist <- list()
-for(d in datasets){
-  plotData <- intergration_sd[intergration_sd$datasets == d,]
-  plotData <- plotData[!(plotData$model == "unCorrect" | plotData$model == "GraphSTwithPASTE"),]
-  plotData$model <- factor(plotData$model, levels = c("Banksy", "CellCharter", "CN", "GraphST", 
-                                                      "MENDER", "NicheCompass", "Spado"))
-  plotData <- na.omit(plotData)
-  p <- ggplot(plotData, aes(x = Accuracy, y = Ratio, label = model, color = model)) +
-    geom_point(size = 0.7) +  # 绘制点
-    geom_errorbar(aes(ymin = Ratio - Ratio_sd, ymax = Ratio + Ratio_sd), width = 0.05, size = 0.2) +
-    geom_errorbarh(aes(xmin = Accuracy - Accuracy_sd, xmax = Accuracy + Accuracy_sd), height = 0.05, size = 0.2) +
-    scale_color_manual(values = color) +  
-    labs(x = "Accuracy", y = "Ratio") + 
-    theme_classic() +  
-    theme(axis.text.x = element_text(angle = 0, hjust = 1, size = 6, color = "black"),
-          axis.text.y = element_text(size = 6, color = "black"),
-          axis.title.y = element_text(size = 6, color = "black"),
-          axis.title.x = element_text(size = 6, color = "black"),
-          panel.grid.major = element_blank(), 
-          panel.grid.minor = element_blank(),
-          axis.line = element_line(color = "black", size = 0.2),
-          legend.position = "none")
-  plotlist[[d]] <- p
-}
-p_all <- wrap_plots(plotlist, ncol = 5)
-ggsave("Analysis/Spatial_alignment/result/Metric.pdf", p_all, width = 22, height = 4.5, units = "cm")
-
-### 3. Funky Heatmap ----
+### 2. Funky Heatmap ----
 # This section creates a heatmap of the integration results across all datasets. 
 # The heatmap visualizes the accuracy and ratio metrics, with color scales 
 # customized for different datasets. The results are displayed in a visually 
 # informative format, highlighting the performance of different models across datasets.
+rank_custom_jump <- function(x) {
+  result <- rep(NA, length(x))
+  min_val <- min(x)
+  is_min <- x == min_val
+  result[is_min] <- 1  # 最小值标为 1
+  
+  # 对非最小值进行 rank，起始从 (1 + sum(is_min))
+  offset <- sum(is_min)
+  nonmin_ranks <- rank(x[!is_min], ties.method = "min") + (offset)
+  result[!is_min] <- nonmin_ranks
+  names(result) <- names(x)
+  return(result)
+}
 
 library(funkyheatmap)
 library(kableExtra)
@@ -167,7 +147,7 @@ color <- tibble(palette = c("overall", "intergrationColor", "simulationColor", "
                 colours = colours)
 
 heatmapData <- intergration_re[,match(c("model", "datasets", "Accuracy", "Ratio") ,colnames(intergration_re))]
-heatmapData <- heatmapData[heatmapData$datasets %in% c("DLPFC_sample3", "MERFISH", "MERFISH_Brain_S3", "BaristaSeq", "STARMap"),]
+heatmapData <- heatmapData[heatmapData$datasets %in% c("DLPFC_sample1", "DLPFC_sample2","DLPFC_sample3", "MERFISH", "MERFISH_Brain_S3", "BaristaSeq", "STARMap"),]
 heatmapData$model <- as.character(heatmapData$model)
 heatmapData$Ratio <- (100-heatmapData$Ratio)
 
@@ -247,4 +227,3 @@ p <- funky_heatmap(
 )
 p
 ggsave("Analysis/Spatial_alignment/result/heatmap_all_new.pdf", plot = p, device = "pdf", width = 210, height = 100, units = "mm")
-
