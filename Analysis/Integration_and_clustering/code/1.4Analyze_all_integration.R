@@ -299,6 +299,20 @@ ggsave("Analysis/Integration_and_clustering/result/DLPFC_box.pdf", DLPFC_plot$bo
 
 ### 3.funck heatmap----
 #### 3.1load color data-----
+rank_custom_jump <- function(x) {
+  result <- rep(NA, length(x))
+  min_val <- min(x)
+  is_min <- x == min_val
+  result[is_min] <- 1  # 最小值标为 1
+  
+  # 对非最小值进行 rank，起始从 (1 + sum(is_min))
+  offset <- sum(is_min)
+  nonmin_ranks <- rank(x[!is_min], ties.method = "min") + (offset)
+  result[!is_min] <- nonmin_ranks
+  names(result) <- names(x)
+  return(result)
+}
+
 data("dynbenchmark_data")
 palettes <- dynbenchmark_data$palettes
 
@@ -605,7 +619,7 @@ colnames(heatmapData)[1] <- "id"
 
 heatmapData[,2:ncol(heatmapData)] <- apply(heatmapData[,2:ncol(heatmapData)], 2, function(x){
   x[which(is.na(x))] <- -10
-  rank(x)
+  rank_custom_jump(x)
 })
 
 datasets <- c("DLPFC", "MERFISH", "BaristaSeq", "STARMap", "Mouse")
