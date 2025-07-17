@@ -137,7 +137,7 @@ nohup python Benchmark/Alignment/Run_SPACEL.py \
 ## BaristaSeq
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -148,7 +148,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -159,7 +159,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -170,7 +170,7 @@ nohup python Run_STAlian.py \
 ```
 ### GraphST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -181,7 +181,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -192,7 +192,7 @@ nohup python Run_STAlian.py \
 ```
 ### NicheCompass
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/NicheCompass.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -203,7 +203,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -214,7 +214,7 @@ nohup python Run_STAlian.py \
 ```
 ### SpaDo
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -225,7 +225,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -236,7 +236,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -247,7 +247,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/BaristaSeq/sample_data \
 --input_data Data/BaristaSeq/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
@@ -259,7 +259,7 @@ nohup python Run_STAlian.py \
 ## DLPFC S1
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -270,7 +270,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -281,7 +281,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -292,7 +292,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -303,7 +303,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -314,7 +314,7 @@ nohup python Run_STAlian.py \
 ```
 ### Spado
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -325,7 +325,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -336,7 +336,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -347,7 +347,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample1/sample_data \
 --input_data Data/DLPFC_sample1/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample1 \
@@ -359,7 +359,7 @@ nohup python Run_STAlian.py \
 ## DLPFC S2
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -370,7 +370,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -381,7 +381,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -392,7 +392,7 @@ nohup python Run_STAlian.py \
 ```
 ### GraphST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -403,7 +403,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -414,7 +414,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -425,7 +425,7 @@ nohup python Run_STAlian.py \
 ```
 ### Spado
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -436,7 +436,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -447,7 +447,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -458,7 +458,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample2/sample_data \
 --input_data Data/DLPFC_sample2/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample2 \
@@ -470,7 +470,7 @@ nohup python Run_STAlian.py \
 ## DLPFC S3
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -481,7 +481,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -492,7 +492,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -503,7 +503,7 @@ nohup python Run_STAlian.py \
 ```
 ### GraphST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -514,7 +514,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -525,7 +525,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -536,7 +536,7 @@ nohup python Run_STAlian.py \
 ```
 ### Spado
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -547,7 +547,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -558,7 +558,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -569,7 +569,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/DLPFC_sample3/sample_data \
 --input_data Data/DLPFC_sample3/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/DLPFC_sample3 \
@@ -581,7 +581,7 @@ nohup python Run_STAlian.py \
 ## MERFISH Preoptic
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -592,7 +592,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -603,7 +603,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -614,7 +614,7 @@ nohup python Run_STAlian.py \
 ```
 ### GraphST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -625,7 +625,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -636,7 +636,7 @@ nohup python Run_STAlian.py \
 ```
 ### NicheCompass
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/NicheCompass.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -647,7 +647,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -658,7 +658,7 @@ nohup python Run_STAlian.py \
 ```
 ### Spado
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -669,7 +669,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -680,7 +680,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -691,7 +691,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH/sample_data \
 --input_data Data/MERFISH/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH \
@@ -703,7 +703,7 @@ nohup python Run_STAlian.py \
 ## MERFISH Brain S3
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -714,7 +714,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -725,7 +725,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -736,7 +736,7 @@ nohup python Run_STAlian.py \
 ```
 ### GraphST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -747,7 +747,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -758,7 +758,7 @@ nohup python Run_STAlian.py \
 ```
 ### NicheCompass
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/NicheCompass.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -769,7 +769,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -780,7 +780,7 @@ nohup python Run_STAlian.py \
 ```
 ### Spado
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -791,7 +791,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -802,7 +802,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -813,7 +813,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/MERFISH_Brain_S3/sample_data \
 --input_data Data/MERFISH_Brain_S3/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/MERFISH_Brain_S3 \
@@ -825,7 +825,7 @@ nohup python Run_STAlian.py \
 ## STARMap
 ### Banksy
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/Banksy.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -836,7 +836,7 @@ nohup python Run_STAlian.py \
 ```
 ### CellCharter
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/CellCharter.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -847,7 +847,7 @@ nohup python Run_STAlian.py \
 ```
 ### CN
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/CN.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -858,7 +858,7 @@ nohup python Run_STAlian.py \
 ```
 ### GraphST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/GraphST.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -869,7 +869,7 @@ nohup python Run_STAlian.py \
 ```
 ### MENDER
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/MENDER.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -880,7 +880,7 @@ nohup python Run_STAlian.py \
 ```
 ### NicheCompass
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/NicheCompass.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -891,7 +891,7 @@ nohup python Run_STAlian.py \
 ```
 ### PRECAST
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/PRECAST.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -902,7 +902,7 @@ nohup python Run_STAlian.py \
 ```
 ### Spado
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/Spado.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -913,7 +913,7 @@ nohup python Run_STAlian.py \
 ```
 ### SPIRAL
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/SPIRAL.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -924,7 +924,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAIG
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/STAIG.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
@@ -935,7 +935,7 @@ nohup python Run_STAlian.py \
 ```
 ### STAligner
 ```python
-nohup python Run_STAlian.py \
+nohup python Run_STAligner.py \
 --input_file Data/STARMap/sample_data \
 --input_data Data/STARMap/IntergrationRe/STAligner.h5ad \
 --output_file Benchmark/Alignment/Result/STARMap \
