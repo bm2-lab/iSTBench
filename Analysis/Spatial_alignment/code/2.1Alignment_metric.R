@@ -8,10 +8,6 @@ library(getopt)
 library(tidyr)
 library(reticulate)
 
-# Specify the Python environment to use (required by SeuratDisk for Python-R integration)
-# use_python("/home/dongkj/anaconda3/envs/MultiSpatial/bin/python", required=TRUE)
-
-
 # Command-line argument definition
 # The following spec matrix defines the input arguments for the script: 
 spec <- matrix(
@@ -45,7 +41,6 @@ analyze_spatial_data <- function(input_file, slices) {
   # List all files in the input directory, excluding irrelevant files
   fl <- list.files(input_file)
   fl <- fl[!grepl("Metric", fl)]  # Exclude files with 'Metric' in their names
-  fl <- fl[!grepl("Dr.A", fl)]  # Exclude Dr.A related files
   
   # Initialize empty data frames to store the results
   domain_match_rate_all <- data.frame()
@@ -78,28 +73,31 @@ analyze_spatial_data <- function(input_file, slices) {
     domain_match_ratio <- c()
     
     # Compute domain match rate and ratio for each consecutive slice pair
-    for(s in 1:(length(slices) - 1)) {
-      s1_metadata <- metadata[metadata$slice_name == slices[s], ]
-      s2_metadata <- metadata[metadata$slice_name == slices[s + 1], ]
+    for(s in 1:(length(slices)-1)){
+      s1_metadata <- metadata[metadata$slices == slices[s] , ]
+      s2_metadata <- metadata[metadata$slices == slices[s+1] , ]
       
-      s1_spatial <- spatial[which(metadata$slice_name == slices[s]), ]
-      s2_spatial <- spatial[which(metadata$slice_name == slices[s + 1]), ]
+      s1_spatial <-spatial[match(s1_metadata$barcode, metadata$barcode),] 
+      rownames(s1_spatial) <- s1_metadata$barcode
+      s2_spatial <-spatial[match(s2_metadata$barcode, metadata$barcode),]   
+      rownames(s2_spatial) <- s2_metadata$barcode
       
-      # Calculate distance matrix between spatial coordinates of slice pairs
       distance_matrix <- as.matrix(dist(rbind(s1_spatial, s2_spatial)))
+      distance_matrix <- distance_matrix[rownames(s1_spatial), rownames(s2_spatial)]
       
-      # Extract the relevant part of the distance matrix
-      s1_length <- nrow(s1_spatial)
-      s2_length <- nrow(s2_spatial)
-      distance_matrix <- distance_matrix[1:s1_length, (s1_length + 1):(s1_length + s2_length)]
       min_distance_indices <- apply(distance_matrix, 1, which.min)
-      
       s1_domain <- s1_metadata$original_domain
-      s2_domain <- s2_metadata[min_distance_indices, ]$original_domain
-      
-      # Calculate domain match rate and ratio
+      s2_domain <- s2_metadata[min_distance_indices,]$original_domain
       same_rate <- sum(s1_domain == s2_domain) / length(s1_domain)
-      match_ratio <- min(length(s1_domain), length(s2_domain)) / length(unique(min_distance_indices))
+      
+      min_distance_indices_col <- apply(distance_matrix, 2, which.min)
+      s1_domain_col <- s1_metadata[min_distance_indices_col,]$original_domain
+      s2_domain_col <- s2_metadata$original_domain
+      same_rate_col <- sum(s1_domain_col == s2_domain_col) / length(s2_domain_col)
+      same_rate <- mean(c(same_rate, same_rate_col))
+      
+      match_ratio <- min(length(s1_domain), length(s2_domain)) /length(unique(min_distance_indices))
+      match_ratio <- abs(log2(match_ratio))
       
       domain_match_rate <- c(domain_match_rate, same_rate)
       domain_match_ratio <- c(domain_match_ratio, match_ratio)
