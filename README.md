@@ -105,42 +105,13 @@ nohup python Benchmark/RunModel/Run_MENDER.py \
 --sample MENDER --nclust 6 --runNormalization False --tech MIBI \
 > Data/TNBC/SlicesEmbedding/MENDER/MENDER6.output &
 
-nohup python Benchmark/RunModel/Run_MENDER.py \
---input_file Data/TNBC/sample_all_data/Slices_combind_data.h5ad \
---output_file Data/TNBC/SlicesEmbedding/MENDER/14 \
---sample MENDER --nclust 14 --runNormalization False --tech MIBI \
-> Data/TNBC/SlicesEmbedding/MENDER/MENDER14.output &
-
 # Slices are represented and clustered based on domain abundance.
 nohup Rscript Benchmark/SliceRepresentation/SliceRepresentation.R \
 -f Data/TNBC/SlicesEmbedding/MENDER \
 -m MENDER -n 3 \
 > Data/TNBC/SlicesEmbedding/MENDER/Metric/SlicesClustering.output &
 ```
-The specific meanings of the parameters can be referenced in the "Benchmark/SliceRepresentation/parameters.md" file. 
-# Modular solution
-## Domain-Relationship-Aware Alignment Method (Dr.A)
-The code for spatial alignment using DR.A is as follows:
-```python
-nohup python Improve/DR.A/DR.A.py \
---data_path Data/BaristaSeq/sample_data_rotate \
---integrated_path Data/BaristaSeq/IntergrationRe \
---output_path Improve/DR.A/Result/BaristaSeq/ \
---slices_file 'slices1,slices2,slices3' --slices '1,2,3' --model MENDER \
-> Improve/DR.A/Result/MENDER.output &
-```
-The "data_path", "integrated_path" and "output_path" should be set to the exact paths of the input and output files, depending on the actual setup. The specific meanings of the parameters can be found in the "Improve/DR.A/parameters.md" file.
-## Domain-Relationship-Aware Slice Representation Method (Dr.S)
-The code for slice representation using DR.S is as follows:
-```python
-nohup Rscript Improve/DR.S/DR.S.R \
--f Data/TNBC/SlicesEmbedding/MENDER/14/MENDER.h5ad \
--o Data/TNBC/SlicesEmbedding/MENDER/14 \
--c 3 \
-> Improve/DR.S/MENDER.output &
-```
-The "f" is the file path that stores the result of integration with the data, and in the obs of this data there needs to be a column "predicted_domain" to store domian information for each cell. “o” should be set to the exact paths of the output files, depending on the actual setup. "c" is the number of clusters to generate during the clustering step. The specific meanings of the parameters can be found in the "Improve/DR.S/parameters.md" file.
-
+The current code is set to identify 4 to 10 domains by default for each specified method. The specific meanings of the parameters can be referenced in the "Benchmark/SliceRepresentation/parameters.md" file. 
 # Analysis
 The relevant code for analyzing and visualizing the results is stored in the "Analysis" folder.
 # Citation
