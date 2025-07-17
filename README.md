@@ -80,6 +80,7 @@ nohup python Benchmark/Alignment/Run_SPACEL.py \
 --output_file Benchmark/Alignment/Result/BaristaSeq \
 --batches "slices1,slices2,slices3" --step 10 \
 > Benchmark/Alignment/Result/BaristaSeq/SPACEL_MENDER.output &
+# You just need to change imput_path to use the results of different methods
 
 # STAligner based MENDER result
 nohup python Benchmark/Alignment/Run_STAligner.py \
@@ -90,8 +91,10 @@ nohup python Benchmark/Alignment/Run_STAligner.py \
 --landmark_domain 4 --landmark_domain_original VISp_wm --domain predicted_domain \
 --step 10 --runNormalization False \
 >Benchmark/Alignment/Result/BaristaSeq/STAlignerMENDER.output &
+# You just need to change imput_path to use the results of different methods
+
 ```
-The "input_file", "input_data" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The alignment results are stored in the file "Benchmark/Alignment/Result/BaristaSeq". The specific meanings of the parameters can be referenced in the "Benchmark/Alignment/parameters.md" file. The relevant code for spatial alignment based on other datasets can be found in "Benchmark/Alignment/TerminalRun.md" and "Benchmark/Alignment/TerminalRun2.txt".
+The "input_file", "input_data" and "output_file" should be set to the exact paths of the input and output files, depending on the actual setup. The alignment results are stored in the file "Benchmark/Alignment/Result/BaristaSeq". The specific meanings of the parameters can be referenced in the "Benchmark/Alignment/parameters.md" file. The relevant code for spatial alignment based on other datasets can be found in "Benchmark/Alignment/TerminalRun.md".
 ## 3. Slice representation
 In this section, we use the abundance of identified spatial domains in each slice as the representation. To do this, domain information must first be obtained using the integration method, and then slice representations are generated based on domain abundance. Taking MENDER as an example, the relevant code is as follows:
 ```python
