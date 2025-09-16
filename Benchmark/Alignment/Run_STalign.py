@@ -44,7 +44,7 @@ def main(input_file, output_file, batches, step, dx = 30, seed = 123):
       if tpointsI.is_cuda:
         tpointsI = tpointsI.cpu()
      
-      adata_source.obsm["spatial"] = tpointsI.numpy()
+      adata_source.obsm["spatial"] = tpointsI[:, [1, 0]].numpy()
       corrected_adatas.append(adata_source)
       print(f"{batch} finished!")
 
