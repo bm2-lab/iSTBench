@@ -18,6 +18,9 @@ setwd("iSTBench/")
 # The related result files, integration_re.csv and integration_re_all.csv, can be directly used in subsequent analyses 
 # without needing to repeat this step.
 models <- c("Banksy", "CellCharter", "CN", "GraphST", "GraphSTwithPASTE", "MENDER", "NicheCompass", "PRECAST", "Spado", "SPIRAL", "STAIG", "STAligner")
+datasets <- c("BaristaSeq", "DLPFC_sample1", "DLPFC_sample2", "DLPFC_sample3", "MERFISH", "MERFISH_Brain_S2", "MERFISH_Brain_S3",
+              "MERFISH_Brain_S4", "MERFISH_Brain_S5", "MERFISH_Brain_S6", "MERFISH_Brain_S7", "MERFISH_Brain_S8", "MERFISH_Brain_S9", "MERFISH_Brain_S10",
+              "MERFISH_Brain_S11", "MERFISH_Brain_S12", "STARMap", "Mouse")
 
 intergration_re <- data.frame()
 for(d in datasets){
