@@ -46,7 +46,7 @@ metadata$Ground_truth <- as.character(metadata$Ground_truth)
 model <- model[-which(model == "GraphSTwithPASTE")]
 model <- c("PASTE", "STalign", model, paste("SPACEL", model, sep = "_"))
 for(m in model){
-  m_data <- read_h5ad(paste("/home/dongkj/home_dkj/FD_yzy/Landmark_based_intergration/Dataset/BaristaSeq", m, "Spatial_correct_data.h5ad", sep = "/"))
+  m_data <- read_h5ad(paste("Benchmark/Alignment/Result/BaristaSeq", m, "Spatial_correct_data.h5ad", sep = "/"))
   m_metadata <- m_data$obs
   index <- match(metadata$barcode, m_metadata$barcode )
   
