@@ -8,9 +8,9 @@ Terminal run:
 ```
 ```python
 nohup Rscript Analysis/Spatial_alignment/code/2.1Alignment_metric.R \
--i "/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench/Benchmark/Alignment/Result/BaristaSeq" \
+-i "Benchmark/Alignment/Result/BaristaSeq" \
 -s "slices1,slices2,slices3" \
-> /NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench/Benchmark/Alignment/Result/BaristaSeq/Metric/metric.output &
+> Benchmark/Alignment/Result/BaristaSeq/Metric/metric.output &
 ```
 ## 2.2Analysis_each_data.R
 The script generates spatial alignment result plots for each dataset based on different methods. It includes both 2D and 3D illustrations, as well as result plots for the corresponding metrics. The example code demonstrates how to plot results for the BaristaSeq dataset. The script needs to be run from the command line.
