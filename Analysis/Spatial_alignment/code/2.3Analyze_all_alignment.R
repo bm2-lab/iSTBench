@@ -21,14 +21,16 @@ models <- c("PASTE", "STalign",
 intergration_re <- data.frame()
 for(d in datasets){
   data_re <- matrix(,length(models),2)
-  path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
-  path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
+  # path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
+  # path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
+  
+  path1 <- paste("Data", d, "IntergrationRe/Metric/Accuracy.csv", sep = "/")
+  path2 <- paste("Data", d, "IntergrationRe/Metric/Ratio.csv", sep = "/")
   
   if(d == "MERFISH_Brain_S3"){
     Accuracy <-read.csv(path1)
     data_re[match(Accuracy$model, models),1] <- Accuracy[,1]
     Ratio <-read.csv(path2)
-    Ratio[,1] <- abs(log2(Ratio[,1]))
     data_re[match(Ratio$model, models),2] <- Ratio[,1]
     
   }else{
@@ -42,7 +44,6 @@ for(d in datasets){
     rownames(Ratio) <- Ratio$model
     Ratio <- Ratio[,-match("model", colnames(Ratio))]
     Ratio <- Ratio[models, ]
-    Ratio <- abs(log2(Ratio))
     Ratio2 <- apply(Ratio, 1, mean)
     
     data_re[,1] <- Accuracy2
@@ -60,8 +61,11 @@ for(d in datasets){
 intergration_sd <- data.frame()
 for(d in datasets){
   data_re <- matrix(,length(models),4)
-  path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
-  path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
+  # path1 <- paste("Benchmark/Alignment/Result", d, "Metric/Accuracy.csv", sep = "/")
+  # path2 <- paste("Benchmark/Alignment/Result", d, "Metric/Ratio.csv", sep = "/")
+  
+  path1 <- paste("Data", d, "IntergrationRe/Metric/Accuracy.csv", sep = "/")
+  path2 <- paste("Data", d, "IntergrationRe/Metric/Ratio.csv", sep = "/")
   
   if(d == "MERFISH_Brain_S3"){
     Accuracy <-read.csv(path1)
@@ -69,7 +73,6 @@ for(d in datasets){
     data_re[match(Accuracy$model, models),1] <- Accuracy$s1.s2
     
     Ratio <-read.csv(path2)
-    Ratio[,1] <- abs(log2(Ratio[,1]))
     data_re[match(Ratio$model, models),3] <- Ratio$s1.s2
     data_re[,4] <- 0
     
@@ -85,7 +88,6 @@ for(d in datasets){
     rownames(Ratio) <- Ratio$model
     Ratio <- Ratio[,-match("model", colnames(Ratio))]
     Ratio <- Ratio[models, ]
-    Ratio <- abs(log2(Ratio))
     Ratio_mean <- apply(Ratio, 1, mean)
     Ratio_sd <- apply(Ratio, 1, sd)
     
@@ -103,11 +105,11 @@ for(d in datasets){
 }
 
 # Save the alignment result and standard deviation to CSV files
-write.table(intergration_re, "Analysis/Spatial_alignment/result/alignment_re.csv", col.names = T, row.names = F, sep = ",", quote = F)
-write.table(intergration_sd, "Analysis/Spatial_alignment/result/alignment_sd.csv", col.names = T, row.names = F, sep = ",", quote = F)
+write.table(intergration_re, "Analysis/Spatial_alignment/result/Alignment_re.csv", col.names = T, row.names = F, sep = ",", quote = F)
+write.table(intergration_sd, "Analysis/Spatial_alignment/result/Alignment_sd.csv", col.names = T, row.names = F, sep = ",", quote = F)
 
-#intergration_re <- read.csv("Analysis/Spatial_alignment/result/alignment_re.csv")
-#intergration_sd <- read.csv("Analysis/Spatial_alignment/result/alignment_sd.csv")
+#intergration_re <- read.csv("Analysis/Spatial_alignment/result/Alignment_re.csv")
+#intergration_sd <- read.csv("Analysis/Spatial_alignment/result/Alignment_sd.csv")
 
 
 ### 2. Funky Heatmap ----
