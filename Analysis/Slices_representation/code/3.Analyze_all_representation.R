@@ -15,7 +15,7 @@ library(pheatmap)
 library(scales) 
 library(patchwork)
 # Set working directory for storing results
-setwd("/NFS2_home/NFS2_home_3/dongkj/home_dkj/FD_yzy/Result/GitHub_test/iSTBench")
+setwd("iSTBench")
 
 ## hclust----
 ### 1. Read data and prepare classification metrics ----
